@@ -1,99 +1,126 @@
+# About Us
+
+## Tea Weight Scale System Research Project
+
+The **Tea Weight Scale System Prototype** is a research-focused project aimed at addressing inefficiencies in tea harvesting and collection through automation, data analytics, and real-time data management. By combining innovative hardware and software technologies, our system enhances the accuracy and efficiency of the tea collection process, creating value for both plantation workers and managers.
+
+### Mission
+To develop and implement a reliable, automated tea collection system that reduces manual errors, increases operational efficiency, and provides real-time insights to improve decision-making in tea plantations.
+
+### Vision
+We envision a future where tea plantations operate seamlessly with the aid of technology, fostering sustainability, productivity, and better working conditions for tea pluckers, supervisors, and plantation managers. Our research-driven approach ensures that we build solutions that benefit all stakeholders.
+
+
+
+## Meet the Team
+
+### Project Lead: **Miss S G Kenny**
+
+- **Role**: Project Manager
+- **Responsibilities**:
+  - Leading project development and research direction.
+  - Coordinating team activities and ensuring successful delivery of milestones.
+  - Overseeing backend development and database design.
+
+
 ---
-title: About Geminsight
+### Technical Team
 ---
+#### 1. **Frontend Developer: Thanushka Nirmana**
 
-# About Geminsight
+- **Role**: User Interface Designer & Web Developer
+- **Responsibilities**:
+  - Designing and developing the web-based user interface.
+  - Ensuring seamless integration of frontend features with the backend APIs.
 
-Welcome to **Geminsight**, the ultimate gem certification system designed to streamline your operations and enhance your business. Our platform is built to provide a seamless and efficient experience for both gemologists and administrative staff, ensuring that every gemstone is accurately and comprehensively certified.
+#### 2. **Hardware Engineer: Pasan Wijekoon**
 
-## Our Mission
+- **Role**: Hardware Integration Specialist
+- **Responsibilities**:
+  - Integrating the load cell, HX711 module, LCD, and microcontroller components.
+  - Ensuring accurate data transmission from hardware to the system.
 
-At Geminsight, our mission is to empower gem laboratories with cutting-edge technology that simplifies the certification process while maintaining the highest standards of accuracy and professionalism. We aim to support your business growth by offering a robust, reliable, and user-friendly system.
+#### 3. **Backend Developer: Hasidu Theekshana**
 
-## Key Features
+- **Role**: API Developer & Database Administrator
+- **Responsibilities**:
+  - Developing PHP APIs for saving and retrieving weight data.
+  - Managing and securing the MySQL database.
 
-1. **Dashboard**
-   - Overview of key metrics and insights.
-   - Customizable widgets for personalized views.
 
-2. **Data Visualization**
-   - Interactive charts and graphs for data analysis.
-   - Trend analysis and historical data comparison.
 
-3. **Data Import and Export**
-   - Import data from various sources.
-   - Export data in multiple formats (CSV, Excel, etc.).
+---
+### Research Team (Non-Technical Members)
+---
+#### 1. **Lead Researcher: [Team Member Name]**
+- **Role**: Research Director
+- **Responsibilities**:
+  - Leading the research strategy and aligning it with the project’s objectives.
+  - Ensuring the research addresses the core challenges in tea collection processes.
 
-4. **Advanced Filtering and Search**
-   - Filter data based on specific criteria.
-   - Advanced search functionality for quick data retrieval.
+#### 2. **Research Assistant: [Team Member Name]**
+- **Role**: Field Researcher
+- **Responsibilities**:
+  - Collecting field data related to tea plucking and collection.
+  - Analyzing workflows and identifying areas for improvement through automation.
 
-5. **Alerts and Notifications**
-   - Customizable alerts for important events.
-   - Notification system for real-time updates.
+#### 3. **Market Research Analyst: [Team Member Name]**
+- **Role**: Research and Market Analyst
+- **Responsibilities**:
+  - Conducting market research to identify potential adoption of the system.
+  - Analyzing industry trends and providing reports on future technology needs.
 
-6. **User Management**
-   - User registration and profile management.
-   - Role assignment and access control.
+#### 4. **Operations Specialist: [Team Member Name]**
+- **Role**: Operations Researcher
+- **Responsibilities**:
+  - Assessing operational workflows and efficiencies in tea plantations.
+  - Collaborating with the technical team to optimize system processes.
 
-7. **Report Generation**
-   - Automated report generation.
-   - Customizable report templates.
+#### 5. **Human Resources Researcher: [Team Member Name]**
+- **Role**: Workforce Study Specialist
+- **Responsibilities**:
+  - Studying the impact of the system on tea pluckers and supervisors.
+  - Identifying how the system can improve working conditions and productivity.
 
-8. **API Integration**
-   - Integration with third-party APIs for data exchange.
-   - RESTful API for seamless integration with other systems.
+#### 6. **Environmental Impact Analyst: [Team Member Name]**
+- **Role**: Sustainability Researcher
+- **Responsibilities**:
+  - Researching the environmental benefits of the automated system.
+  - Ensuring that the system supports sustainability in tea plantations.
 
-9. **Security Features**
-   - Role-based access control (RBAC).
-   - Data encryption and secure authentication.
+#### 7. **Project Coordinator: [Team Member Name]**
+- **Role**: Administrative Coordinator
+- **Responsibilities**:
+  - Coordinating between the technical and research teams.
+  - Managing timelines, meetings, and reporting.
 
-10. **Mobile Compatibility**
-    - Responsive design for mobile access.
-    - Native mobile app support.
+#### 8. **Policy Researcher: [Team Member Name]**
+- **Role**: Policy and Compliance Specialist
+- **Responsibilities**:
+  - Ensuring the system complies with industry regulations and policies.
+  - Researching potential government and industry support for adoption.
 
-11. **Scalability and Performance**
-    - High scalability to handle large datasets.
-    - Optimized performance for efficient data processing.
+#### 9. **Stakeholder Engagement Specialist: [Team Member Name]**
+- **Role**: Stakeholder Relations Manager
+- **Responsibilities**:
+  - Managing relationships with key stakeholders in the tea industry.
+  - Ensuring the system meets the needs of all parties involved.
 
-12. **Customization Options**
-    - Customizable dashboards and reports.
-    - Flexible configuration settings.
+#### 10. **Training Specialist: [Team Member Name]**
+- **Role**: Trainer and Educator
+- **Responsibilities**:
+  - Developing training materials for tea pluckers and supervisors on using the system.
+  - Ensuring that users understand and can effectively interact with the technology.
 
-13. **Data Quality Management**
-    - Data validation and cleansing.
-    - Duplicate detection and removal.
+#### 11. **Report Writer: [Team Member Name]**
+- **Role**: Documentation Specialist
+- **Responsibilities**:
+  - Preparing research reports, documentation, and papers based on project findings.
+  - Collaborating with team members to publish results.
 
-14. **Desktop Integration**
-    - Seamless integration with desktop environments.
-    - Support for native features like file dialogs, notifications, etc.
-
-15. **Offline Access**
-    - Ability to work offline and sync data when online.
-
-16. **Multi-platform Support**
-    - Compatibility with different operating systems (Windows, macOS, Linux).
-
-17. **Localization and Internationalization**
-    - Support for multiple languages and regional settings.
-
-18. **Accessibility**
-    - Compliance with accessibility standards for users with disabilities.
-
-19. **Version Control**
-    - Support for version control of data and application updates.
-
-20. **Documentation and Help**
-    - Comprehensive documentation and help resources for users.
-
-21. **Testing and Debugging Tools**
-    - Built-in tools for testing and debugging application functionality.
-
-22. **Logging and Error Handling**
-    - Logging of application events for troubleshooting.
-    - Error handling mechanisms to handle exceptions gracefully.
-
-23. **Backup and Recovery**
-    - Automated backup mechanisms to prevent data loss.
-    - Recovery options in case of system failures.
+#### 12. **Financial Analyst: [Team Member Name]**
+- **Role**: Project Finance Researcher
+- **Responsibilities**:
+  - Conducting financial analysis of the system’s cost-benefit for plantations.
+  - Providing reports on the potential return on investment (ROI) for adopting the system.
 

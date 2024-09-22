@@ -37,29 +37,56 @@ export default {
         ],
       },
       {
-        text: "Main Activities",
-        collapsible: false,
+        text: "System Components",
+        collapsible: true,
         items: [
-          { text: "Login", link: "/login" },
-          { text: "Dash Board", link: "/dashborad" },
-          { text: "Customer Registration", link: "/CustomerRegistration" },
-          { text: "Create Gem Order", link: "/" },
-          { text: "Create Lab Report", link: "/" },
-          { text: "Generate Certificate", link: "/" },
-         
+          { text: "Hardware Components", link: "/hardwarecomponents" },
+          { text: "Software and Frameworks", link: "/softwareframeworks" },
+          { text: "Connectivity", link: "/connectivity" },
         ],
       },
       {
-        text: "Other Activities",
+        text: "System Flow",
         collapsible: true,
         items: [
-          { text: "User Registration", link: "/userregister" },
-          { text: "Getting Started", link: "/gettingstarted" },
-          { text: "Complete Pending Payment", link: "/" },
-          { text: "Reports & Analytics", link: "/" },
-          { text: "Settings", link: "/orders" },
+          { text: "User Workflow", link: "/userworkflow" },
+          { text: "Data Workflow", link: "/dataworkflow" },
         ],
       },
+      {
+        text: "System Architecture",
+        collapsible: true,
+        items: [
+          { text: "Hardware Integration", link: "/hardwareintegration" },
+          { text: "Wireframes", link: "/wireframes" },
+          { text: "Database Design", link: "/databasedesign" },
+          { text: "Use Case Diagrams", link: "/usecasediagrams" },
+        ],
+      },
+      {
+        text: "Code Implementation",
+        collapsible: true,
+        items: [
+          { text: "Arduino Code", link: "/arduinocode" },
+          { text: "PHP Script", link: "/phpscript" },
+          { text: "Frontend UI", link: "/frontendui" },
+        ],
+      },
+      {
+        text: "Testing",
+        collapsible: true,
+        items: [
+          { text: "Test Cases", link: "/testcases" },
+          { text: "Debugging", link: "/debugging" },
+        ],
+      },
+      {
+        text: "Conclusion",
+        collapsible: true,
+        items: [
+          { text: "Conclusion", link: "/conclusion" },
+        ],
+      }
     ],
     // you can disable the previous and next page here
     docFooter: {
