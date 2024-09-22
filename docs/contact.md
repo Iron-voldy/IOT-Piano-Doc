@@ -1,42 +1,48 @@
 # Contact Us
 
-Have questions, suggestions, or need support? Get in touch with us using the contact information below:
+Our team is here to assist you with any inquiries, suggestions, or feedback regarding the **Tea Weight Scale System Prototype**. Feel free to reach out to any of the relevant contacts below.
 
-### Contact Information
+### Team Contacts
 
-- **Address:** [195 Madiwela Rd, Nugegoda 10250]
-- **Phone:** [+94719376447]
-- **Email:** [pasanwijekoon673@gmail.com]
+#### Project Lead
 
-### Support
+- **Name:** Miss S G Kenny
+- **Email:** SGKenny@gmail.com
+- **Phone:** +94 76 272 4227
 
-For technical assistance or inquiries regarding GemInsight, please contact our support team:
+#### Technical Lead
+- **Name:** Pasan Wijekoon
+- **Email:** pasanwijekoon673@gmail.com
+- **Phone:** +94 71 937 6447
 
-- **Email:** [pasanwijekoon673@gmail.com]
-- **Phone:** [+94719376447]
+#### Backend Developer
+- **Name:** Hasidu Theekshana
+- **Email:** Hasindut@gmail.com.com
 
-### Sales
+#### Frontend Developer
+- **Name:** Thanushka Nirmana
+- **Email:** thanushkaNirmana@gmail.com
 
-Interested in learning more about GemInsight or considering a purchase? Contact our sales team:
+---
 
-- **Email:** [pasanwijekoon673@gmail.com]
-- **Phone:** [+94719376447]
 
-### Feedback
 
-We value your feedback! If you have any suggestions or comments about GemInsight, please let us know:
+### Feedback and Suggestions
 
-- **Email:** [pasanwijekoon673@gmail.com]
+We value your feedback and ideas! If you have any suggestions to improve the **Tea Weight Scale System**, feel free to reach out to us
 
-### Social Media
 
-Connect with us on social media to stay updated with the latest news, announcements, and insights:
+---
+
+### Connect with Us
+
+Stay connected with the team and get the latest updates about our project:
 
 - [Facebook](https://www.facebook.com/pasan.wijekoon.39/)
 - [Twitter](https://twitter.com/pasan_wijekoon)
 - [LinkedIn](https://www.linkedin.com/in/pasan-wijekoon-65295a1b0/)
 - [Instagram](https://www.instagram.com/pasanwijekoon)
 
+---
 
-
-Thank you for choosing GemInsight!
+Thank you for collaborating with the **Tea Weight Scale System Prototype** team!
