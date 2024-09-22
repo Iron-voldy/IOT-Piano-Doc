@@ -15,7 +15,7 @@ hero:
       link: /introduction
     - theme: alt
       text: View on GitHub
-      link: https://github.com/PasanSWijekoon/GeminsightDocumentation
+      link: https://github.com/PasanSWijekoon/Axious-Document
 
 # Features section
 features:
