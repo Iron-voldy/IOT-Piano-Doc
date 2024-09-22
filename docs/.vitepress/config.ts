@@ -40,17 +40,14 @@ export default {
         text: "System Components",
         collapsible: true,
         items: [
-          { text: "Hardware Components", link: "/hardwarecomponents" },
-          { text: "Software and Frameworks", link: "/softwareframeworks" },
-          { text: "Connectivity", link: "/connectivity" },
+          { text: "All Components", link: "/Components" },
         ],
       },
       {
         text: "System Flow",
         collapsible: true,
         items: [
-          { text: "User Workflow", link: "/userworkflow" },
-          { text: "Data Workflow", link: "/dataworkflow" },
+          { text: "All Workflows", link: "/workflow" },
         ],
       },
       {
