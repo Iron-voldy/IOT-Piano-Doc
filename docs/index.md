@@ -46,7 +46,7 @@ head:
       content: Axious
   - - meta
     - property: og:image
-      content: https://github.com/PasanSWijekoon/GeminsightDocumentation/blob/main/docs/public/Card.png?raw=true
+      content: https://github.com/PasanSWijekoon/Axious-Document/blob/main/docs/public/Card.png?raw=true
   - - meta
     - property: og:url
       content: https://vitejs.dev/blog/announcing-vite3
@@ -55,7 +55,7 @@ head:
       content: Axious
   - - meta
     - name: twitter:card
-      content: https://github.com/PasanSWijekoon/GeminsightDocumentation/blob/main/docs/public/Card.png?raw=true
+      content: https://github.com/PasanSWijekoon/Axious-Document/blob/main/docs/public/Card.png?raw=true
   - - link
     - rel: icon
       type: image/png
