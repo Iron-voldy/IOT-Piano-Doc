@@ -69,7 +69,7 @@ export default {
   
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2024-present Adocs",
+      copyright: "Copyright © 2024 Project Axious",
     },
     markdown: {
       theme: "material-palenight",
