@@ -30,7 +30,7 @@ This page allows the supervisor to:
 
 ![Main](img/collection1.png)
 
-**Add Employee**: 
+**Add Employee Model**: 
 
 ![Main1](img/collection2.png)
 
