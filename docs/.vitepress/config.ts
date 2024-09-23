@@ -57,7 +57,7 @@ export default {
           { text: "Hardware Integration", link: "/hardwareintegration" },
           { text: "Wireframes", link: "/wireframes" },
           { text: "Database Design", link: "/databasedesign" },
-          { text: "Use Case Diagrams", link: "/usecasediagrams" },
+          { text: "UML Diagrams", link: "/usecasediagrams" },
         ],
       },
       {
