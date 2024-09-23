@@ -14,13 +14,14 @@ We envision a future where tea plantations operate seamlessly with the aid of te
 
 ## Meet the Team
 
-### Project Lead: **Miss S G Kenny**
+### Project Lead: **Stephany Kenny**
 
 - **Role**: Project Manager
 - **Responsibilities**:
   - Leading project development and research direction.
   - Coordinating team activities and ensuring successful delivery of milestones.
   - Overseeing backend development and database design.
+  - Contact: 0762724227, Email: gloriyadstephany@gmail.com
 
 
 ---
@@ -52,75 +53,86 @@ We envision a future where tea plantations operate seamlessly with the aid of te
 ---
 ### Research Team (Non-Technical Members)
 ---
-#### 1. **Lead Researcher: [Team Member Name]**
-- **Role**: Research Director
-- **Responsibilities**:
-  - Leading the research strategy and aligning it with the project’s objectives.
-  - Ensuring the research addresses the core challenges in tea collection processes.
+1. **Rashmi Sanjana**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting in collecting data related to tea collection processes.
+     - Contributing to writing and organizing research content.
+     - Contact: 0717372714, Email: sanjanarashmi046@gmail.com
 
-#### 2. **Research Assistant: [Team Member Name]**
-- **Role**: Field Researcher
-- **Responsibilities**:
-  - Collecting field data related to tea plucking and collection.
-  - Analyzing workflows and identifying areas for improvement through automation.
+2. **Siluni Nanayakkara**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting in analyzing market trends for system adoption.
+     - Contributing to writing sections related to market research and analysis.
+     - Contact: 0714914689, Email: nanayakkarasiluni@gmail.com
 
-#### 3. **Market Research Analyst: [Team Member Name]**
-- **Role**: Research and Market Analyst
-- **Responsibilities**:
-  - Conducting market research to identify potential adoption of the system.
-  - Analyzing industry trends and providing reports on future technology needs.
+3. **Chamindu Wijedoru**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting in evaluating operational processes in tea plantations.
+     - Supporting the writing of research findings related to operational improvements.
+     - Contact: 0772039992, Email: HS23299016@my.sliit.lk
 
-#### 4. **Operations Specialist: [Team Member Name]**
-- **Role**: Operations Researcher
-- **Responsibilities**:
-  - Assessing operational workflows and efficiencies in tea plantations.
-  - Collaborating with the technical team to optimize system processes.
+4. **Hashini Imasha**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting with researching environmental impacts of automation.
+     - Contributing to writing sections focused on sustainability and environmental benefits.
+     - Contact: 0769242947, Email: khimasha2000@gmail.com
 
-#### 5. **Human Resources Researcher: [Team Member Name]**
-- **Role**: Workforce Study Specialist
-- **Responsibilities**:
-  - Studying the impact of the system on tea pluckers and supervisors.
-  - Identifying how the system can improve working conditions and productivity.
+5. **Vaishnavy Balakrishnan**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Supporting compliance research for the system.
+     - Assisting with writing content related to policy and regulatory compliance.
+     - Contact: 0764950272, Email: vaishnavybalakrishnan267@gmail.com
 
-#### 6. **Environmental Impact Analyst: [Team Member Name]**
-- **Role**: Sustainability Researcher
-- **Responsibilities**:
-  - Researching the environmental benefits of the automated system.
-  - Ensuring that the system supports sustainability in tea plantations.
+6. **Nethmi Ilangasinghe**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting with stakeholder analysis and feedback.
+     - Contributing to writing research sections related to stakeholder engagement.
+     - Contact: 0764914069, Email: nethmiilangasinghe2003@gmail.com
 
-#### 7. **Project Coordinator: [Team Member Name]**
-- **Role**: Administrative Coordinator
-- **Responsibilities**:
-  - Coordinating between the technical and research teams.
-  - Managing timelines, meetings, and reporting.
+7. **Hansamali Senarath**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting with the development of training materials for users.
+     - Contributing to writing sections related to user training and system implementation.
+     - Contact: 0772752767, Email: hirunihansamali5@gmail.com
 
-#### 8. **Policy Researcher: [Team Member Name]**
-- **Role**: Policy and Compliance Specialist
-- **Responsibilities**:
-  - Ensuring the system complies with industry regulations and policies.
-  - Researching potential government and industry support for adoption.
+8. **Nilma Sewmini Fernando**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting with studying the impact of the system on workers.
+     - Contributing to writing sections focused on workforce efficiency and productivity.
+     - Contact: 0718693767, Email: nilmasewmini16@gmail.com
 
-#### 9. **Stakeholder Engagement Specialist: [Team Member Name]**
-- **Role**: Stakeholder Relations Manager
-- **Responsibilities**:
-  - Managing relationships with key stakeholders in the tea industry.
-  - Ensuring the system meets the needs of all parties involved.
+9. **Hirushi Rathnayaka**
+   - **Role**: Research Assistant and Writer
+   - **Responsibilities**:
+     - Assisting with compiling and organizing research findings.
+     - Contributing to writing reports, documentation, and publication material.
+     - Contact: 0754766855, Email: rathnayakahirushi123@gmail.com
 
-#### 10. **Training Specialist: [Team Member Name]**
-- **Role**: Trainer and Educator
-- **Responsibilities**:
-  - Developing training materials for tea pluckers and supervisors on using the system.
-  - Ensuring that users understand and can effectively interact with the technology.
+10. **Chathumini Parindya**
+    - **Role**: Research Assistant and Writer
+    - **Responsibilities**:
+      - Assisting with financial analysis and research.
+      - Supporting the writing of sections on financial viability and cost-effectiveness.
+      - Contact: 0768924723, Email: chathuminiparindya@gmail.com
 
-#### 11. **Report Writer: [Team Member Name]**
-- **Role**: Documentation Specialist
-- **Responsibilities**:
-  - Preparing research reports, documentation, and papers based on project findings.
-  - Collaborating with team members to publish results.
+11. **Devindi Kaluarachchi**
+    - **Role**: Research Assistant and Writer
+    - **Responsibilities**:
+      - Assisting with field research and data collection.
+      - Contributing to writing sections based on field data and analysis.
+      - Contact: 0764678412, Email: HS23147546@my.sliit.lk
 
-#### 12. **Financial Analyst: [Team Member Name]**
-- **Role**: Project Finance Researcher
-- **Responsibilities**:
-  - Conducting financial analysis of the system’s cost-benefit for plantations.
-  - Providing reports on the potential return on investment (ROI) for adopting the system.
-
+12. **Nawodya Sandeepani Wickramarachchi**
+    - **Role**: Research Assistant and Writer
+    - **Responsibilities**:
+      - Assisting with logistical planning and coordination for research activities.
+      - Contributing to writing sections on operational logistics and team coordination.
+      - Contact: 0763924553, Email: nawodyawickramarachchi28@gmail.com
