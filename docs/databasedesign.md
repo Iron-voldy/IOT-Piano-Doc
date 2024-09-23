@@ -1,100 +1,102 @@
-# Database Design
-
+# Database Design 
 
 ## Database Design Description
 
-The following section describes the **database design** for the **Tea Weight Scale System Prototype**,This database design manages employees and records the tea weights collected by them, along with tracking orders made by employees.
+The following section describes the **database design** for the **IoT Piano Visualizer**, which manages users, song data, and performance tracking. This database design ensures that each user's interaction with the system, including their selected songs and performance metrics, is accurately recorded and retrievable for analysis and improvement.
 
 **ER Diagram**: 
 
 ![ER](img/er.png)
 
-### **1. Database Schema: `weight_db`**
-The schema `weight_db` is created to manage all the database objects for the Tea Weight Scale System. This schema contains three key tables: `employees`, `save_weights`, and `order`.
+### **1. Database Schema: `iot_piano_db`**
+The schema `iot_piano_db` is created to manage all the database objects for the IoT Piano Visualizer. This schema contains three key tables: `users`, `songs`, and `performances`.
 
 ---
 
-### **2. Table: `employees`**
+### **2. Table: `users`**
 
-- **Purpose**: Stores information about the employees (e.g., tea pluckers).
+- **Purpose**: Stores information about users who are learning or interacting with the IoT Piano Visualizer.
 - **Structure**:
-  - `empid` (INT, AUTO_INCREMENT): The unique identifier for each employee. This is the **Primary Key** of the table.
-  - `name` (VARCHAR(100)): The name of the employee. This field is optional (can be `NULL`).
+  - `userid` (INT, AUTO_INCREMENT): The unique identifier for each user. This is the **Primary Key** of the table.
+  - `username` (VARCHAR(100)): The name of the user.
+  - `email` (VARCHAR(255)): The email address of the user for communication and identification.
+  - `role` (ENUM('learner', 'admin')): Indicates the role of the user in the system.
 
 - **Primary Key**:
-  - `empid`: Ensures that each employee has a unique identifier.
+  - `userid`: Ensures that each user has a unique identifier.
 
 ```sql
-CREATE TABLE IF NOT EXISTS `weight_db`.`employees` (
-  `empid` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NULL,
-  PRIMARY KEY (`empid`)
+CREATE TABLE IF NOT EXISTS `iot_piano_db`.`users` (
+  `userid` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `role` ENUM('learner', 'admin') NOT NULL,
+  PRIMARY KEY (`userid`)
 ) ENGINE = InnoDB;
 ```
 
 ---
 
-### **3. Table: `save_weights`**
+### **3. Table: `songs`**
 
-- **Purpose**: Stores the tea weight measurements for each employee and records the timestamp when the weight was recorded.
+- **Purpose**: Stores the list of songs available for practice within the system.
 - **Structure**:
-  - `id` (INT, AUTO_INCREMENT): A unique identifier for each weight record. This is the **Primary Key** of the table.
-  - `weight_value` (FLOAT): The actual weight of the tea collected. This field is optional (can be `NULL`).
-  - `timestamp` (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP): The time when the weight was recorded.
-  - `employees_empid` (INT): A foreign key that links to the `empid` field in the `employees` table, associating the recorded weight with the specific employee.
+  - `songid` (INT, AUTO_INCREMENT): A unique identifier for each song. This is the **Primary Key** of the table.
+  - `title` (VARCHAR(255)): The name of the song.
+  - `duration` (INT): The duration of the song in seconds.
+  - `difficulty` (ENUM('easy', 'medium', 'hard')): The difficulty level of the song.
 
 - **Primary Key**:
-  - `id`: Uniquely identifies each weight entry.
-
-- **Indexes and Foreign Keys**:
-  - An **index** (`fk_weights_employees_idx`) is created on the `employees_empid` field to improve query performance.
-  - A **Foreign Key Constraint** (`fk_weights_employees`) is established between the `employees_empid` field and the `empid` field of the `employees` table. This enforces referential integrity, ensuring that weight entries are only associated with valid employees.
-  - **ON DELETE NO ACTION** and **ON UPDATE NO ACTION** ensure that no cascading operations are performed on weight records when an employee's record is updated or deleted.
+  - `songid`: Uniquely identifies each song.
 
 ```sql
-CREATE TABLE IF NOT EXISTS `weight_db`.`save_weights` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `weight_value` FLOAT NULL,
+CREATE TABLE IF NOT EXISTS `iot_piano_db`.`songs` (
+  `songid` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `duration` INT NOT NULL,
+  `difficulty` ENUM('easy', 'medium', 'hard') NOT NULL,
+  PRIMARY KEY (`songid`)
+) ENGINE = InnoDB;
+```
+
+---
+
+### **4. Table: `performances`**
+
+- **Purpose**: Tracks user performances, storing information about which song they played, the score achieved, and when the performance was recorded.
+- **Structure**:
+  - `performanceid` (INT, AUTO_INCREMENT): A unique identifier for each performance. This is the **Primary Key** of the table.
+  - `score` (INT): The score achieved by the user during the performance.
+  - `timestamp` (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP): The time when the performance was recorded.
+  - `users_userid` (INT): A foreign key linking to the `userid` field in the `users` table.
+  - `songs_songid` (INT): A foreign key linking to the `songid` field in the `songs` table.
+
+- **Primary Key**:
+  - `performanceid`: Uniquely identifies each performance record.
+
+- **Indexes and Foreign Keys**:
+  - An **index** (`fk_performances_users_idx`) is created on the `users_userid` field to improve query performance.
+  - A **foreign key constraint** (`fk_performances_users`) ensures that performance records are only associated with valid users.
+  - Another **foreign key constraint** (`fk_performances_songs`) ensures that each performance is linked to a valid song.
+
+```sql
+CREATE TABLE IF NOT EXISTS `iot_piano_db`.`performances` (
+  `performanceid` INT NOT NULL AUTO_INCREMENT,
+  `score` INT NOT NULL,
   `timestamp` TIMESTAMP NULL DEFAULT current_timestamp(),
-  `employees_empid` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_weights_employees_idx` (`employees_empid` ASC) VISIBLE,
-  CONSTRAINT `fk_weights_employees`
-    FOREIGN KEY (`employees_empid`)
-    REFERENCES `weight_db`.`employees` (`empid`)
+  `users_userid` INT NOT NULL,
+  `songs_songid` INT NOT NULL,
+  PRIMARY KEY (`performanceid`),
+  INDEX `fk_performances_users_idx` (`users_userid` ASC) VISIBLE,
+  INDEX `fk_performances_songs_idx` (`songs_songid` ASC) VISIBLE,
+  CONSTRAINT `fk_performances_users`
+    FOREIGN KEY (`users_userid`)
+    REFERENCES `iot_piano_db`.`users` (`userid`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-) ENGINE = InnoDB;
-```
-
----
-
-### **4. Table: `order`**
-
-- **Purpose**: Stores information about the orders placed by employees, including the timestamp of the order and the employee who placed the order.
-- **Structure**:
-  - `id` (INT, AUTO_INCREMENT): A unique identifier for each order. This is the **Primary Key** of the table.
-  - `timestamp` (TIMESTAMP, DEFAULT CURRENT_TIMESTAMP): The time when the order was placed.
-  - `employees_empid` (INT): A foreign key that links to the `empid` field in the `employees` table, associating the order with the specific employee who placed it.
-
-- **Primary Key**:
-  - `id`: Uniquely identifies each order.
-
-- **Indexes and Foreign Keys**:
-  - An **index** (`fk_order_employees1_idx`) is created on the `employees_empid` field to optimize queries.
-  - A **Foreign Key Constraint** (`fk_order_employees1`) is established between the `employees_empid` field and the `empid` field of the `employees` table. This ensures that orders are only associated with valid employees.
-  - **ON DELETE NO ACTION** and **ON UPDATE NO ACTION** prevent cascading updates or deletes on the associated employee records.
-
-```sql
-CREATE TABLE IF NOT EXISTS `weight_db`.`order` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `timestamp` TIMESTAMP NULL DEFAULT current_timestamp(),
-  `employees_empid` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_order_employees1_idx` (`employees_empid` ASC) VISIBLE,
-  CONSTRAINT `fk_order_employees1`
-    FOREIGN KEY (`employees_empid`)
-    REFERENCES `weight_db`.`employees` (`empid`)
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_performances_songs`
+    FOREIGN KEY (`songs_songid`)
+    REFERENCES `iot_piano_db`.`songs` (`songid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
@@ -104,14 +106,14 @@ CREATE TABLE IF NOT EXISTS `weight_db`.`order` (
 
 ## **Summary of Database Design**
 
-- **Schema**: `weight_db`
-  - Contains the tables `employees`, `save_weights`, and `order`.
+- **Schema**: `iot_piano_db`
+  - Contains the tables `users`, `songs`, and `performances`.
 
 - **Table Relationships**:
-  - The `save_weights` and `order` tables are related to the `employees` table via **foreign keys**. Both tables store `employees_empid` as a reference to the primary key (`empid`) in the `employees` table.
+  - The `performances` table is related to both the `users` and `songs` tables via **foreign keys**. The `users_userid` field references `userid` in the `users` table, and the `songs_songid` field references `songid` in the `songs` table.
 
 - **Referential Integrity**:
-  - Ensured by foreign key constraints, which maintain consistency between employee records and the weight/order data.
+  - Referential integrity is maintained by foreign key constraints, ensuring that performance records are always linked to valid users and songs.
 
 - **Indexing**:
-  - Indexes are added on foreign key fields to optimize query performance when accessing related data (e.g., querying weight records for a specific employee).
+  - Indexes are applied to the foreign key fields to enhance query performance when retrieving user performances or song data.

@@ -1,20 +1,21 @@
 # Arduino Code Implementation
 
-## Arduino Code for Tea Weight Scale System
+## Arduino Code for IoT Piano LED Visualizer System
 
-The following Arduino code is used to measure the weight of the harvested tea, display the result on an LCD screen, and send the weight data to a server via Wi-Fi after the user (tea plucker or supervisor) presses a button.
+The following Arduino code is designed to read piano key inputs, provide visual feedback using an LED strip, display information on an LCD screen, and send performance data to a server via Wi-Fi after a key is pressed.
 
 #### **Code Explanation**:
 1. **Components Used**:
-   - **HX711 Load Cell**: Used for accurate weight measurement.
-   - **16x2 LCD Display**: Shows the current weight.
-   - **Push Button**: Confirms the weight to be sent to the server.
-   - **LED**: Gives feedback after data is successfully sent.
-   - **Wi-Fi Module (ESP32 or similar)**: Connects to Wi-Fi to send the data.
+   - **WS2812B LED Strip**: Provides visual feedback based on the piano key pressed.
+   - **16x2 LCD Display**: Shows current note, mode (tutorial/play), and other information.
+   - **Push Button Sensors**: Detect piano key presses.
+   - **IR Sensor**: Detects hand movements to stop the play mode.
+   - **Wi-Fi Module (ESP32 or similar)**: Connects to Wi-Fi to send performance data.
 
 2. **Functional Overview**:
-   - The system continuously reads the weight from the **HX711 load cell** and displays it on the **LCD**.
-   - When the **button** is pressed, the system sends the weight to a **PHP server** via an HTTP POST request and lights up an **LED** to confirm successful transmission.
+   - The system continuously reads inputs from the **push button sensors** and triggers the **WS2812B LED strip** to display corresponding visual feedback.
+   - The **LCD** shows the current note being played.
+   - When a key is pressed, the system sends performance data to a **PHP server** via an HTTP POST request.
 
 #### **Arduino Code**:
 
@@ -23,58 +24,53 @@ The following Arduino code is used to measure the weight of the harvested tea, d
 #include <HTTPClient.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
+#include <Adafruit_NeoPixel.h>
 #include "HX711.h"
 
-// Define GPIO pins for HX711, LCD, Button, and LED
-#define LOADCELL_DOUT_PIN  5   // Data pin for HX711
-#define LOADCELL_SCK_PIN   4   // Clock pin for HX711
-#define BUTTON_PIN 15          // Pin for the push button
-#define LED_PIN 13             // Pin for the LED
+// Define GPIO pins for LED strip, LCD, Button Sensors, and IR sensor
+#define BUTTON_PIN_1 12      // Piano key 1
+#define BUTTON_PIN_2 14      // Piano key 2
+#define BUTTON_PIN_3 27      // Piano key 3
+#define IR_SENSOR_PIN 33     // IR sensor for hand detection
+#define LED_PIN 13           // Pin for WS2812B LED strip
 
 // WiFi credentials
 const char* ssid = "Wokwi-GUEST";  // Replace with your WiFi SSID
 const char* password = "";  // Replace with your WiFi password
 
 // Server URL
-const char* serverURL = "https://axious.getweight.com/store_weight.php"; 
+const char* serverURL = "https://piano-system-server.com/store_data.php"; 
 
-// Initialize LCD
+// Initialize LCD and LED strip
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // I2C address for the LCD (0x27 may vary)
-
-// Initialize HX711 scale
-HX711 scale;
-
-// Calibration factor based on recalculation
-float calibration_factor = 344.6;  // Adjusted calibration factor
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(8, LED_PIN, NEO_GRB + NEO_KHZ800);  // LED strip with 8 LEDs
 
 void setup() {
   // Initialize Serial Monitor
   Serial.begin(115200);
-
-  // Initialize HX711
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  scale.set_scale(calibration_factor);  // Set the calibration factor
-  scale.tare();  // Reset the scale to 0
 
   // Initialize LCD
   lcd.init();
   lcd.backlight();
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Project Axios 2.0");
+  lcd.print("IoT Piano System");
   delay(2000);  // Display message for 2 seconds
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Ready");
-  delay(1000);
-  lcd.clear();
 
-  // Initialize button pin with internal pull-up resistor
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  // Initialize button pins
+  pinMode(BUTTON_PIN_1, INPUT_PULLUP);
+  pinMode(BUTTON_PIN_2, INPUT_PULLUP);
+  pinMode(BUTTON_PIN_3, INPUT_PULLUP);
 
-  // Initialize LED pin as OUTPUT
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);  // Turn off the LED initially
+  // Initialize IR sensor pin
+  pinMode(IR_SENSOR_PIN, INPUT);
+
+  // Initialize LED strip
+  strip.begin();
+  strip.show();  // Initialize all pixels to 'off'
 
   // Connect to WiFi
   WiFi.begin(ssid, password);
@@ -94,71 +90,90 @@ void setup() {
 }
 
 void loop() {
-  // Read weight from HX711
-  float weight = scale.get_units(10);  // Get the average of 10 readings
-
-  // Display the weight on the LCD
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Weight: ");
-  lcd.print(weight, 2);  // Show weight with 2 decimal places
-  lcd.setCursor(0, 1);
-  lcd.print("kg");
-
-  // Check if the button is pressed (LOW state due to pull-up)
-  if (digitalRead(BUTTON_PIN) == LOW) {
-    // Print the current weight to the Serial Monitor when the button is pressed
-    Serial.print("Current Weight: ");
-    Serial.print(weight, 2);
-    Serial.println(" kg");
-
-    // Send the weight to the PHP server
-    if (WiFi.status() == WL_CONNECTED) {
-      HTTPClient http;
-      http.begin(serverURL);  // Specify the server URL
-
-      // Prepare the payload to send
-      String payload = "weight=" + String(weight, 2);
-
-      // Specify content-type header and POST method
-      http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-      int httpResponseCode = http.POST(payload);
-
-      // Check the server response
-      if (httpResponseCode > 0) {
-        String response = http.getString();
-        Serial.println("Server Response: " + response);
-      } else {
-        Serial.println("Error in sending POST request");
-      }
-
-      http.end();  // End the HTTP connection
-    } else {
-      Serial.println("WiFi not connected");
-    }
-
-    // Turn on the LED to indicate the value was printed and sent
-    digitalWrite(LED_PIN, HIGH);
-
-    // Wait for 1 second to show the LED before turning it off (you can adjust this)
-    delay(1000);
-    digitalWrite(LED_PIN, LOW);  // Turn off the LED
-
-    // Debounce delay to avoid multiple readings on one press
-    delay(300);
+  // Check if a piano key (button) is pressed
+  if (digitalRead(BUTTON_PIN_1) == LOW) {
+    handlePianoKeyPress(1);
+  } else if (digitalRead(BUTTON_PIN_2) == LOW) {
+    handlePianoKeyPress(2);
+  } else if (digitalRead(BUTTON_PIN_3) == LOW) {
+    handlePianoKeyPress(3);
   }
 
-  // Wait for a second before refreshing the screen
-  delay(1000);
+  // Check for hand movement to stop play mode
+  if (digitalRead(IR_SENSOR_PIN) == LOW) {
+    stopPlayMode();
+  }
+
+  // Wait for a short delay before refreshing the loop
+  delay(200);
+}
+
+void handlePianoKeyPress(int keyNumber) {
+  // Display the current key on the LCD
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Key Pressed: ");
+  lcd.print(keyNumber);
+
+  // Trigger visual feedback on the LED strip
+  lightUpLED(keyNumber);
+
+  // Send the key press data to the server
+  sendKeyPressToServer(keyNumber);
+
+  // Delay to debounce the button press
+  delay(300);
+}
+
+void lightUpLED(int keyNumber) {
+  // Turn on the corresponding LED for visual feedback
+  strip.setPixelColor(keyNumber - 1, strip.Color(0, 150, 0));  // Green light for key press
+  strip.show();
+  delay(500);
+  strip.setPixelColor(keyNumber - 1, strip.Color(0, 0, 0));  // Turn off the LED
+  strip.show();
+}
+
+void sendKeyPressToServer(int keyNumber) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(serverURL);
+
+    // Prepare the payload to send
+    String payload = "key=" + String(keyNumber);
+
+    // Specify content-type header and POST method
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    int httpResponseCode = http.POST(payload);
+
+    // Check the server response
+    if (httpResponseCode > 0) {
+      String response = http.getString();
+      Serial.println("Server Response: " + response);
+    } else {
+      Serial.println("Error in sending POST request");
+    }
+
+    http.end();  // End the HTTP connection
+  } else {
+    Serial.println("WiFi not connected");
+  }
+}
+
+void stopPlayMode() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Play Mode Stopped");
+  Serial.println("Play Mode stopped by IR sensor.");
 }
 ```
 
 ---
 
-##  Functional Explanation
+## Functional Explanation
 
-- **Wi-Fi Connection**: The system connects to Wi-Fi and sends the weight data to the server. If the connection is lost, the system keeps attempting to reconnect.
-- **Weight Measurement**: The weight is measured using the **HX711 load cell** module. The measured weight is displayed on the **LCD**.
-- **Button Confirmation**: When the tea plucker presses the button, the system sends the measured weight to a server using an HTTP POST request.
-- **LED Feedback**: The LED lights up after the data is successfully sent, giving visual feedback to the user.
-
+- **Wi-Fi Connection**: The system connects to Wi-Fi and sends key press data to the server. If the connection is lost, it attempts to reconnect.
+- **Piano Key Detection**: When a piano key is pressed (simulated with buttons), it triggers a visual response on the **WS2812B LED strip** and displays the key on the **LCD**.
+- **Visual Feedback**: Each key press lights up a corresponding LED on the **WS2812B LED strip**, providing real-time visual feedback.
+- **IR Sensor**: The IR sensor stops the play mode when a hand movement is detected.
+- **Data Transmission**: Each key press is sent to a server via an HTTP POST request for tracking user performance.

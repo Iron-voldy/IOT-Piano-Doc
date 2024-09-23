@@ -1,14 +1,13 @@
 # PHP Scripts
 
+## Script for Saving Played Songs (save_played_song.php)
 
-## Script for Receiving and Saving Weight Data
-
-This PHP script listens for an HTTP POST request from the Arduino and stores the received weight value in a MySQL database.
+This PHP script receives data about the song that has been played, including the song ID and mode (Tutorial or Play), and stores it in the `played_songs` table. Additionally, it updates a flag to signal new data availability.
 
 #### **Functional Overview**:
-- The script receives the `weight` value sent via POST.
-- It validates the received data to ensure it's within an acceptable range.
-- The validated weight is inserted into the MySQL database, with a timestamp for when the data was recorded.
+- Receives the `song_id` and `mode` via POST request.
+- Saves the song details in the `played_songs` table.
+- Updates a flag in the `fetch_flag` table to signal new data.
 
 ### **PHP Code**:
 
@@ -28,7 +27,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 $servername = "localhost";
 $dBUsername = "root";
 $dBPassword = "";
-$dBName = "weight_db";
+$dBName = "piano_system_db";
 
 // Create connection to MySQL
 $conn = new mysqli($servername, $dBUsername, $dBPassword, $dBName);
@@ -38,31 +37,29 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if weight data is received via POST request
-if (isset($_POST['weight'])) {
-    // Convert the weight value to a float
-    $weight = floatval($_POST['weight']);
+// Check if song data is received via POST request
+if (isset($_POST['song_id']) && isset($_POST['mode'])) {
+    $song_id = intval($_POST['song_id']);
+    $mode = $_POST['mode'];
 
-    // Validate that the weight is a positive number
-    if ($weight > 0 && $weight <= 1000.00) {
-        // Prepare the SQL query using a prepared statement
-        $stmt = $conn->prepare("INSERT INTO save_weights (weight_value, timestamp) VALUES (?, NOW())");
-        $stmt->bind_param("d", $weight); // 'd' stands for double (floating point)
+    // Prepare the SQL query
+    $stmt = $conn->prepare("INSERT INTO played_songs (song_id, mode, timestamp) VALUES (?, ?, NOW())");
+    $stmt->bind_param("is", $song_id, $mode);
 
-        // Execute the query
-        if ($stmt->execute()) {
-            echo "Weight recorded successfully";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
+    // Execute the query
+    if ($stmt->execute()) {
+        // Update the flag in the fetch_flag table
+        $conn->query("UPDATE fetch_flag SET flag = 1 WHERE id = 1");
 
-        // Close the statement
-        $stmt->close();
+        echo "Song played data saved successfully";
     } else {
-        echo "Invalid weight value";
+        echo "Error: " . $stmt->error;
     }
+
+    // Close the statement
+    $stmt->close();
 } else {
-    echo "No weight data received";
+    echo "No song data received";
 }
 
 // Close the connection
@@ -74,55 +71,242 @@ $conn->close();
 
 ### **Explanation**:
 
-1. **Error Reporting**:
-   - Error reporting is enabled with `ini_set('display_errors', 1)` for debugging during development.
+1. **Error Reporting**: 
+   - Debugging is enabled for development purposes using `ini_set()` and `error_reporting()`.
 
-2. **CORS Headers**:
-   - The script allows cross-origin requests from any domain (`Access-Control-Allow-Origin: *`) and accepts POST requests with `Content-Type` headers.
+2. **CORS Headers**: 
+   - Allows cross-origin requests from any domain and accepts POST requests.
 
-3. **Database Connection**:
-   - The script connects to a MySQL database using credentials (`$servername`, `$dBUsername`, `$dBPassword`, `$dBName`).
-   - If the connection fails, the script outputs an error and halts.
+3. **Database Connection**: 
+   - The script establishes a connection to the MySQL database.
 
-4. **POST Request Handling**:
-   - The script checks if the `weight` value is sent via an HTTP POST request using `isset($_POST['weight'])`.
-   - The weight value is converted to a float using `floatval()` to ensure that it can be stored as a floating-point number in the database.
+4. **POST Request Handling**: 
+   - The script checks if `song_id` and `mode` are received via POST request and processes the data.
 
-5. **Validation**:
-   - The weight is validated to ensure that it is a positive number and within an acceptable range (0 to 1000). This can be adjusted as needed based on your use case.
+5. **Prepared Statement**: 
+   - A prepared statement is used to securely insert the song's play data into the `played_songs` table, preventing SQL injection.
 
-6. **Prepared Statement**:
-   - A prepared statement is used to securely insert the weight value into the `save_weights` table. This prevents SQL injection attacks.
-   - The weight is stored alongside a timestamp (`NOW()`) in the database.
+6. **Update Fetch Flag**: 
+   - After the song data is saved, the fetch flag is updated in the `fetch_flag` table to signal that new data is available.
 
-7. **Response**:
-   - If the weight is successfully recorded, the script returns a success message: "Weight recorded successfully".
-   - If an error occurs, the error message from MySQL is output.
-
-8. **Closing Connections**:
-   - Both the prepared statement and database connection are closed after use to free up resources.
+7. **Response**: 
+   - Success and error messages are returned based on the result of the data insertion.
 
 ---
 
-### Example of **Database Table** (`save_weights`):
+## Script for Saving Performance Data (save_performance.php)
 
-```sql
-CREATE TABLE IF NOT EXISTS `save_weights` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `weight_value` FLOAT NULL,
-  `timestamp` TIMESTAMP NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
+This script saves the user's performance data after a song has been played, including the song name, score, and mode (Tutorial or Play), to the `performance_data` table.
+
+#### **Functional Overview**:
+- Receives the song name, score, and mode from the frontend.
+- Inserts this performance data into the `performance_data` table.
+
+### **PHP Code**:
+
+```php
+<?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Set CORS headers
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
+// Database connection parameters
+$servername = "localhost";
+$dBUsername = "root";
+$dBPassword = "";
+$dBName = "piano_system_db";
+
+// Create connection to MySQL
+$conn = new mysqli($servername, $dBUsername, $dBPassword, $dBName);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if performance data is received via POST request
+if (isset($_POST['song_name']) && isset($_POST['score']) && isset($_POST['mode'])) {
+    $song_name = $_POST['song_name'];
+    $score = floatval($_POST['score']);
+    $mode = $_POST['mode'];
+
+    // Prepare the SQL query
+    $stmt = $conn->prepare("INSERT INTO performance_data (song_name, score, mode, timestamp) VALUES (?, ?, ?, NOW())");
+    $stmt->bind_param("sds", $song_name, $score, $mode);
+
+    // Execute the query
+    if ($stmt->execute()) {
+        echo "Performance data saved successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement
+    $stmt->close();
+} else {
+    echo "No performance data received";
+}
+
+// Close the connection
+$conn->close();
+?>
 ```
 
-- **`id`**: Primary key, auto-incremented.
-- **`weight_value`**: The recorded weight of the tea.
-- **`timestamp`**: Automatically records the time the weight was saved.
+---
+
+### **Explanation**:
+
+1. **POST Data**: 
+   - Receives the `song_name`, `score`, and `mode` from the frontend after a song is played.
+
+2. **Prepared Statement**: 
+   - A prepared statement is used to securely insert performance data into the `performance_data` table.
+
+3. **Response**: 
+   - Returns success or error messages based on the result of the data insertion.
 
 ---
-This  script is part of the backend server that communicates with the **Arduino-based Tea Weight Scale System**. When the tea plucker presses the button, the weight is sent to this PHP script via an HTTP POST request, which stores the weight and the timestamp in the database for further processing and reporting.
 
-### How It Fits Into the System:
-- **Arduino** reads the weight and sends it to this PHP server.
-- **PHP** receives the weight and stores it in a database.
-- **Supervisor** can later view this stored data via a front-end interface.
+## Script for Fetching Performance Data (get_performance_data.php)
+
+This script retrieves all saved performance data from the `performance_data` table and sends it back as a JSON response.
+
+#### **Functional Overview**:
+- Retrieves all performance data, including song name, score, and mode.
+- Returns the data in JSON format.
+
+### **PHP Code**:
+
+```php
+<?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Set CORS headers
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+// Database connection parameters
+$servername = "localhost";
+$dBUsername = "root";
+$dBPassword = "";
+$dBName = "piano_system_db";
+
+// Create connection to MySQL
+$conn = new mysqli($servername, $dBUsername, $dBPassword, $dBName);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Retrieve performance data
+$sql = "SELECT song_name, score, mode, timestamp FROM performance_data ORDER BY timestamp DESC";
+$result = $conn->query($sql);
+
+// Prepare data for JSON response
+$performanceData = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $performanceData[] = $row;
+    }
+}
+
+// Output the data in JSON format
+echo json_encode($performanceData);
+
+// Close the connection
+$conn->close();
+?>
+```
+
+---
+
+### **Explanation**:
+
+1. **Data Retrieval**: 
+   - Fetches all performance data from the `performance_data` table, ordered by timestamp.
+
+2. **JSON Response**: 
+   - Returns the fetched data as a JSON response, which is then used by the frontend to display user performance.
+
+---
+
+## Script for Fetching Songs (get_songs.php)
+
+This script retrieves the list of available songs from the `songs` table and sends it back as a JSON response.
+
+#### **Functional Overview**:
+- Retrieves all songs from the `songs` table.
+- Returns the song names and IDs in JSON format.
+
+### **PHP Code**:
+
+```php
+<?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Set CORS headers
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+// Database connection parameters
+$servername = "localhost";
+$dBUsername = "root";
+$dBPassword = "";
+$dBName = "piano_system_db";
+
+// Create connection to MySQL
+$conn = new mysqli($servername, $dBUsername, $dBPassword, $dBName);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Retrieve songs
+$sql = "SELECT id, song_name FROM songs ORDER BY song_name ASC";
+$result = $conn->query($sql);
+
+// Prepare data for JSON response
+$songData = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $songData[] = $row;
+    }
+}
+
+// Output the data in JSON format
+echo json_encode($songData);
+
+// Close the connection
+$conn->close();
+?>
+```
+
+---
+
+### **Explanation**:
+
+1. **Data Retrieval**: 
+   - Retrieves the list of all available songs from the `songs` table.
+
+2. **JSON Response**: 
+   - Returns the song data (song name and ID) as a JSON response for the frontend to display in the song selection list.
+
+---
+
+This structure should now provide a clear overview of how
+
+ each PHP script integrates into the **IoT Piano LED Visualizer System** for song management, performance tracking, and status monitoring.

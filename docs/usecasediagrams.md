@@ -1,68 +1,77 @@
 ## Use Case Diagrams
 
-The **Use Case Diagrams** illustrate how different actors (users) interact with the system. In the context of the **Tea Weight Scale System Prototype**, the primary actors are the **Tea Plucker** and **Supervisor**. The use case diagram helps outline the system's functionalities from the user's perspective.
+The **Use Case Diagrams** illustrate how different actors (users) interact with the **IoT Piano LED Visualizer System**. The primary actors for this system are the **Learner** and **Administrator**. The use case diagram outlines the system's functionalities from the user's perspective.
 
 #### **Primary Actors**:
-1. **Tea Plucker**: Responsible for placing the harvested tea on the weight scale.
-2. **Supervisor**: Verifies and confirms the tea weight and employee ID, and approves the data for storage.
+1. **Learner**: A user who practices piano and uses the visual feedback system.
+2. **Administrator**: A user responsible for managing songs, user performance data, and system maintenance.
 
 ---
 
-### **Use Case Diagram 1: Tea Plucker and Supervisor Interaction**
+### **Use Case Diagram 1: Learner and Administrator Interaction**
 
 #### **Use Cases**:
-1. **Weigh Tea**:
-   - **Actor**: Tea Plucker
-   - **Description**: The tea plucker places harvested tea on the weight scale, and the system measures the tea's weight using the load cell.
-   
-2. **Confirm Weight**:
-   - **Actor**: Supervisor
-   - **Description**: The supervisor verifies the weight displayed on the LCD screen and confirms it by entering the employee ID and pressing the "Confirm" button.
+1. **Select Song**:
+   - **Actor**: Learner
+   - **Description**: The learner selects a song from the list in the web interface to practice.
 
-3. **Save Data**:
-   - **Actor**: Supervisor
-   - **Description**: Once the weight and employee ID are confirmed, the system sends the data to the backend server, where it is stored in the database.
+2. **Play Song**:
+   - **Actor**: Learner
+   - **Description**: The learner starts playing the song, and the LED strip visualizes the notes in real-time.
 
-4. **View Final Weights**:
-   - **Actor**: Supervisor
-   - **Description**: The supervisor can view the final saved weights and related data (e.g., employee ID, timestamp) via the web interface.
+3. **Track Performance**:
+   - **Actor**: Learner
+   - **Description**: The learner's performance (score, mode, and timing) is tracked and stored in the system.
+
+4. **View Performance Data**:
+   - **Actor**: Learner
+   - **Description**: The learner views their saved performance data, including scores and feedback, via the frontend.
+
+5. **Manage Songs**:
+   - **Actor**: Administrator
+   - **Description**: The administrator uploads and manages the song data (notes, durations) for practice.
+
+6. **Monitor System**:
+   - **Actor**: Administrator
+   - **Description**: The administrator ensures the system's performance, handling database updates and hardware status checks.
 
 #### **Diagram Description**:
-- **Weigh Tea**: The system automatically measures the tea weight when the tea plucker places it on the scale.
-- **Confirm Weight**: The supervisor verifies and confirms the data.
-- **Save Data**: After confirmation, the data is saved to the database.
-- **View Final Weights**: The supervisor views the saved data for reporting purposes.
+- **Select Song**: Learners choose a song to practice.
+- **Play Song**: The system plays the selected song and provides visual feedback.
+- **Track Performance**: Performance data is captured and stored.
+- **Manage Songs**: Administrators upload new songs and manage the song list.
 
 **Use Case Diagram Placeholder**: 
 
 ![usecase1](img/usecase1.png)
 
+---
 
 ## Activity Diagrams
 
-Activity diagrams visually represent the workflows and processes within the **Tea Weight Scale System Prototype**. These diagrams detail the interactions between actors (tea pluckers, supervisors) and the system components, demonstrating how actions flow from one step to the next.
+Activity diagrams visually represent the workflows and processes within the **IoT Piano LED Visualizer System**. These diagrams detail the interactions between actors (learners, administrators) and the system components, demonstrating how actions flow from one step to the next.
 
 Below are the key activity diagrams relevant to the system:
 
 ---
 
-### 1. **Weighing Tea and Sending Data Activity Diagram**
+### 1. **Playing a Song and Visualizing Notes Activity Diagram**
 
-This diagram outlines the process in which the tea plucker places tea on the scale, the system measures the weight, and the tea plucker presses a button to confirm the weight, automatically sending the weight data to the application.
+This diagram outlines the process in which the learner selects a song, the system plays the song, and the LEDs light up in sync with the notes being played.
 
 #### **Steps**:
-1. Tea Plucker places harvested tea on the scale.
-2. System measures the weight using the load cell.
-3. System displays the weight on the LCD.
-4. Tea Plucker presses the button on the scale to confirm the weight.
-5. System sends the weight data to the backend application.
+1. Learner selects a song from the list.
+2. System loads the selected song's notes and durations.
+3. System starts playing the song, sending signals to the LED strip to visualize the notes.
+4. Learner plays along with the visual feedback provided by the LED strip.
+5. System tracks performance and stores the score after the song ends.
 
 **Diagram Representation**:
-- **Start**: Tea plucker places tea on the scale.
-- **System Activity**: Measure the weight and display it on the LCD.
-- **User Activity**: Press button to confirm the weight.
-- **System Activity**: Automatically send weight data to the backend.
-- **End**: The system waits for the next action.
+- **Start**: Learner selects a song.
+- **System Activity**: Load and play the song.
+- **User Activity**: Learner follows the notes using the LED strip.
+- **System Activity**: Track performance and store data.
+- **End**: System waits for the next song selection.
 
 **Activity Diagram Placeholder**: 
 
@@ -70,23 +79,21 @@ This diagram outlines the process in which the tea plucker places tea on the sca
 
 ---
 
-### 2. **Confirming and Saving Weight Activity Diagram**
+### 2. **Confirming and Saving Performance Data Activity Diagram**
 
-This diagram illustrates the process the supervisor follows to confirm and save the tea weight in the system.
+This diagram illustrates how the learner's performance data is confirmed and saved into the system after completing a song.
 
 #### **Steps**:
-1. Supervisor views the measured weight on the LCD.
-2. Supervisor enters the employee ID.
-3. Supervisor confirms the weight.
-4. System saves the weight data to the database.
-5. System sends confirmation of data save to the frontend.
+1. Learner finishes playing the selected song.
+2. System calculates the performance score based on the accuracy and timing of notes played.
+3. System saves the performance data (song name, score, mode) into the database.
+4. System notifies the learner that the data has been saved.
 
 **Diagram Representation**:
-- **Start**: Supervisor views the weight.
-- **System Activity**: Supervisor enters employee ID.
-- **User Activity**: Confirm the weight.
-- **System Activity**: Save the weight data in the database.
-- **End**: The system notifies that the data is saved successfully.
+- **Start**: Learner completes the song.
+- **System Activity**: Calculate the score and timing.
+- **System Activity**: Save the performance data in the database.
+- **End**: Notify the learner that the data is saved.
 
 **Activity Diagram Placeholder**: 
 
@@ -94,22 +101,22 @@ This diagram illustrates the process the supervisor follows to confirm and save 
 
 ---
 
-### 3. **Viewing Final Weight Records Activity Diagram**
+### 3. **Managing Songs Activity Diagram**
 
-This diagram demonstrates how the supervisor retrieves and views the final weight records stored in the system.
+This diagram demonstrates how the administrator uploads and manages songs in the system for learners to practice.
 
 #### **Steps**:
-1. Supervisor requests to view the saved weight records.
-2. System retrieves the weight records from the database.
-3. System displays the list of weight records along with timestamps and employee IDs.
+1. Administrator uploads new song data (song name, notes, durations) into the system.
+2. System saves the song data into the database.
+3. Administrator views or edits the existing songs as needed.
+4. Learners can then select and practice these songs.
 
 **Diagram Representation**:
-- **Start**: Supervisor requests to view records.
-- **System Activity**: Retrieve data from the database.
-- **System Activity**: Display the saved weight records.
-- **End**: Supervisor views the data.
+- **Start**: Administrator uploads a new song.
+- **System Activity**: Save song data in the database.
+- **System Activity**: Display song in the available list for learners.
+- **End**: Learners can access the new song.
 
 **Activity Diagram Placeholder**: 
 
 ![ac3](img/ac3.png)
-

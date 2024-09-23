@@ -1,58 +1,57 @@
 # Introduction
 
-The **Tea Weight Scale System Prototype** is designed to automate and streamline the process of weighing harvested tea in plantations. This system integrates modern technology with agriculture, allowing for precise weight measurements and real-time data management, making the tea collection process more efficient and error-free.
+The **IoT Piano LED Visualizer System** is designed to revolutionize piano learning by providing immediate visual feedback through LED lights, enhancing the learning process for beginners and advanced learners alike. By integrating IoT technology with music education, the system offers a fun, engaging, and interactive platform that helps learners understand musical notes and timing in real-time.
 
 ## Purpose of the Project
 
-Tea plantations face challenges in accurately measuring and recording the weight of tea leaves plucked by workers. Traditional manual methods are prone to errors, delays, and inefficiencies. The **Tea Weight Scale System** aims to solve these issues by introducing a technology-driven solution that ensures:
-- **Accurate weight measurement** using high-precision load cells.
-- **Seamless data transmission** from the field to a centralized database.
-- **Efficient record-keeping** for tea pluckers and supervisors, reducing manual paperwork and minimizing errors.
+Learning to play the piano can be challenging, especially when it comes to understanding the timing and sequence of notes. Traditional methods of learning often lack immediate feedback, making it difficult for learners to identify mistakes and improve their technique. The **IoT Piano LED Visualizer System** addresses these challenges by offering:
+- **Real-time visual feedback** using an RGB LED strip that lights up according to the notes being played.
+- **An intuitive learning experience** with two modes: Tutorial Mode, which guides learners through songs, and Play Mode, where learners can practice independently.
+- **Interactive data management**, allowing users to track their progress and improve their piano skills more effectively.
 
 ## Key Objectives
 
 The system is designed to:
-- **Measure and display the weight** of harvested tea using a load cell and digital scale.
-- **Verify and confirm the weight** by a supervisor before storing the data.
-- **Store the data** in a centralized database for easy tracking and reporting.
-- **Provide real-time access** to tea weight data, allowing for faster decision-making and improved productivity.
-  
+- **Provide visual feedback** in real-time by lighting up LEDs corresponding to the notes being played.
+- **Display current notes and modes** on an LCD screen for easier learning.
+- **Track and store user performance** in a database, providing insights and feedback to improve over time.
+- **Allow users to toggle between Tutorial Mode and Play Mode**, offering flexibility in the learning experience.
+
 ## Project Goals
 
-- **Automation**: Automate the process of tea weight measurement and data entry.
-- **Accuracy**: Achieve high precision in weight measurement to ensure fairness in payments for tea pluckers.
-- **Efficiency**: Minimize delays in the tea collection process by digitizing weight records.
-- **User-Friendly Interface**: Provide a simple, intuitive web-based interface for supervisors and workers to interact with the system.
+- **Interactive Learning**: Make piano learning more engaging by providing immediate visual feedback with an RGB LED strip.
+- **Customization**: Allow users to input custom songs, notes, and durations for personalized practice.
+- **Real-Time Feedback**: Offer instant feedback to help learners correct their mistakes as they practice.
+- **User-Friendly Interface**: Ensure the system is easy to use with a web-based interface for controlling the song selection, modes, and playback.
 
 ## System Overview
 
-The **Tea Weight Scale System Prototype** consists of three key components:
+The **IoT Piano LED Visualizer System** consists of three key components:
 
 1. **Hardware Setup**:
-   - A high-precision load cell connected to an HX711 amplifier for measuring the weight of tea.
-   - An LCD display for showing the current weight to supervisors.
-   - A push button for confirming the weight after verification.
+   - **RGB LED Strip** connected to an ESP32 microcontroller for providing visual feedback.
+   - **Push button sensors** to detect piano key presses.
+   - **LCD display** to show the current note and mode.
 
 2. **Web Interface**:
    - A responsive web-based frontend built with **Vite.js** and **Tailwind CSS**.
-   - Features for entering employee IDs, displaying tea weights, and saving records to the database.
+   - Features for entering musical notes, selecting songs, and controlling modes (Tutorial and Play Mode).
 
 3. **Backend & Database**:
-   - A **PHP**-based backend that handles data transmission and storage.
-   - A **MySQL** database to store tea weight records, allowing for efficient data retrieval and reporting.
+   - A **PHP**-based backend that handles user data, song input, and performance storage.
+   - A **MySQL** database to store performance records, allowing users to track progress and access performance data.
 
 ---
 
 ## Benefits of the System
 
-1. **Accuracy**: Ensures accurate weighing and real-time recording of tea weights.
-2. **Efficiency**: Reduces manual entry errors and speeds up the tea collection process.
-3. **Data Integrity**: Centralized storage of weight records ensures data is accurate and can be accessed for audits or reports.
-4. **Scalability**: The system can be scaled to multiple tea collection sites or extended with additional features like reporting, analysis, and worker management.
+1. **Enhanced Learning**: Provides learners with immediate, interactive feedback, making it easier to learn piano.
+2. **Customization**: Allows users to input custom songs, giving them the freedom to practice music they enjoy.
+3. **Progress Tracking**: The system records and stores performance data, enabling learners to monitor their improvement over time.
+4. **Flexible Learning Modes**: Offers both Tutorial Mode for guided learning and Play Mode for independent practice.
 
 ---
 
 ## Conclusion
 
-The **Tea Weight Scale System Prototype** represents a significant step toward modernizing tea collection processes in plantations. By combining hardware automation with web-based data management, the system ensures greater accuracy, efficiency, and transparency in tea collection, ultimately benefiting both workers and supervisors.
-
+The **IoT Piano LED Visualizer System** is a cutting-edge solution that enhances traditional piano learning by integrating visual feedback and real-time data tracking. By combining hardware automation with a web-based interface, the system creates an engaging, interactive learning environment that improves the efficiency and enjoyment of piano practice for learners of all levels.

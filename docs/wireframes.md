@@ -1,74 +1,78 @@
 # **Wireframes**
-## Wireframe 1: Add Collection Page**
-This page allows the supervisor to:
-- Enter the **employee ID**.
-- View the **current weight**.
-- **Select** or **add a new employee**.
-- Save the weight data.
 
-**Layout Details**:
+## **Wireframe 1: Add Song Page**
+This page allows the learner to:
+- **Select a song** from the available list.
+- View the **current note** being played.
+- **Start, pause, or reset** the song.
+- View **performance data** after playing the song.
+
+### **Layout Details**:
+
 1. **Header**:
-   - Title: “Tea Collector v.3”
-   - Navigation Links: “Add Collection” and “View Collections”
+   - Title: “IoT Piano Visualizer”
+   - Navigation Links: “Add Song” and “View Songs”
    - Mobile Menu (Hamburger icon for small screens)
-   
-   
+
 2. **Main Content**:
-   - **Employee ID Field**: An input field labeled “Emp ID” with a **Select button** to choose or add an employee from a modal.
-   - **Weight Display**: An input field labeled “Weight” that displays the latest measured weight.
+   - **Song Selection Field**: A dropdown menu labeled “Select Song” where the learner chooses a song to practice.
+   - **Note Display**: An area showing the current musical note being played, synced with the LED strip visualization.
    - **Action Buttons**:
-     - "Get Weight" button to fetch the latest measured weight from the scale.
-     - "Save" button to store the weight data.
-   
-3. **Employee-Weight Table**: Displays the current entries (employee ID and weight) in a table, dynamically updated with each entry.
+     - "Start" button to begin playing the song.
+     - "Pause" button to pause the song.
+     - "Reset" button to reset the song to the beginning.
 
-4. **Total Weight Section**: Displays the cumulative weight of all entries.
+3. **Performance Table**: Displays the user’s performance details (song name, score, and timestamp) after each song, dynamically updated after each play session.
 
-5. **Final Save Button**: Saves the final weights.
+4. **Save Button**: Saves the performance data to the database.
 
-**Add Collection Page**: 
+**Add Song Page**:
 
-![Main](img/collection1.png)
+![SongPage](img/song1.png)
 
-**Add Employee Model**: 
+**Song Selection Modal**:
 
-![Main1](img/collection2.png)
+![SongModal](img/song2.png)
 
-**Notification**: 
+**Performance Notification**:
 
-![Main2](img/collection3.png)
+![Performance](img/song3.png)
 
-#### **Wireframe 2: Final Weights Table Page**
-This page displays the final weight entries, including the date and the total weight, with data fetched from the server.
+---
 
-**Layout Details**:
+## **Wireframe 2: View Songs Page**
+This page displays the list of all saved songs in the system, including the song name and duration, with data fetched from the server.
+
+### **Layout Details**:
+
 1. **Header**:
-   - Title: “Tea Collector v.3”
-   - Navigation Links: “Add Collection” and “View Collections”
+   - Title: “IoT Piano Visualizer”
+   - Navigation Links: “Add Song” and “View Songs”
 
 2. **Main Content**:
-   - **Final Weights Table**:
+   - **Song List Table**:
      - A table with two columns: 
-       - Date (when the data was saved)
-       - Final Weight
-     - Dynamically populated from the database.
-   - **Scrollable Table**: Supports an overflow feature for handling many records.
+       - **Song Name**: Name of the song.
+       - **Duration**: Length of the song in minutes and seconds.
+     - Dynamically populated from the database with a list of saved songs.
+   
+   - **Scrollable Table**: Supports overflow for handling a large number of song entries.
 
 3. **Buttons**:
-   - Navigation links to other pages (e.g., back to Add Collection page).
+   - Navigation links to other pages (e.g., back to Add Song page).
 
-**View Collections Page**: 
+**View Songs Page**:
 
-![Main2](img/collection4.png)
+![ViewSongs](img/song4.png)
 
+---
 
-### Explanation of Wireframes
+### **Explanation of Wireframes**
 
 1. **Responsive Design**:
-   - The layout should be responsive, adjusting based on the device's screen size. This is facilitated using **Tailwind CSS**.
-   - For mobile users, the navigation should collapse into a hamburger menu, while on larger screens, the full menu should be visible.
+   - The layout is designed to be responsive, ensuring a seamless experience across devices of all sizes. This is achieved using **Tailwind CSS** for flexible design patterns.
+   - For mobile users, the navigation collapses into a hamburger menu for better usability, while on larger screens, the full navigation menu remains visible.
 
-2. **Modal Design** (for adding/selecting employees):
-   - Modal pops up when the user clicks the **Select** button on the "Add Collection" page.
-   - Inside the modal, employees can be selected from a table, or new employee data can be entered and saved.
-   - After selecting or adding an employee, the modal should close, and the employee ID should be populated in the form.
+2. **Modal Design** (for selecting songs):
+   - When the user clicks the **Select Song** button on the "Add Song" page, a modal opens showing the list of available songs.
+   - Inside the modal, learners can select a song or add a new one if necessary. Upon selecting a song, the modal closes, and the song is populated in the form for playback.

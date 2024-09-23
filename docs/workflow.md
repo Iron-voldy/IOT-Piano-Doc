@@ -1,13 +1,15 @@
 ## User Workflow
 
-1. **Tea Plucker Weighs Tea**: The tea plucker places the harvested tea on the weight machine.
-2. **Weight Measurement**: The load cell and HX711 module measure the weight and display it on the LCD screen.
-3. **Supervisor Verification**: The supervisor verifies the weight and enters the employee ID (empid) into the web interface. The weight cannot be altered by the supervisor.
-4. **Data Saving**: Once verified, the system sends the weight and employee ID to the backend server, where the data is stored in the database.
+1. **Learner Selects Song**: The learner selects a song from the list provided in the web interface.
+2. **Song Playback with LED Visualization**: The system begins playing the selected song, and the corresponding notes are visualized using the RGB LED strip.
+3. **Learner Performance**: As the learner follows along with the visual feedback, their performance (timing and accuracy) is tracked by the system.
+4. **Performance Data Saving**: After the song is completed, the system saves the learner's performance data (song name, score, and mode) in the backend server's database.
+
+---
 
 ## Data Workflow
 
-- **Weight Measurement**: Weight is measured by the load cell connected to an HX711 module and sent to the system.
-- **Data Input**: Supervisor enters the employee ID and confirms the weight.
-- **Data Storage**: Weight and empid are sent to the server via HTTP POST, where it is saved in a MySQL database.
-- **Data Retrieval**: The system retrieves the latest weight records from the database to display in the web interface.
+- **Song Selection**: The learner selects a song from the available options stored in the database.
+- **Performance Tracking**: The system tracks the learner's performance as they play the selected song, capturing timing and accuracy data.
+- **Data Storage**: The learner's performance data (song name, score, and mode) is sent to the backend server via HTTP POST and stored in a MySQL database.
+- **Data Retrieval**: The system retrieves the learner's past performance records from the database, which are displayed on the web interface for review.

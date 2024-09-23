@@ -1,30 +1,26 @@
 export default {
-  title: "Axious - Tea Weight Scale System V.3",
-  description: "Tea Weight Scale System Prototype Documentation V.3",
+  title: "IoT Piano Visualizer Documentation",
+  description: "Interactive Piano Learning System Documentation",
   lang: 'en-US',
   cleanUrls: true,
-  // If this is disabled, when building it it will give deadlink errors if your markdown has the wrong links
   ignoreDeadLinks: true,
   
   themeConfig: {
     logo: "/logo.png",
-    siteTitle: "Axious",
+    siteTitle: "IoT Piano Visualizer",
     search: {
       provider: "local",
     },
-    // Navbar Link
+    // Navbar Links
     nav: [
       { text: "About", link: "/about" },
       { text: "Contact", link: "/contact" },
-     // { text: "Guide", link: "/guide" },
-      
     ],
     // Social Icons
     socialLinks: [
-      { icon: "github", link: "https://github.com/PasanSWijekoon" },
-      { icon: "twitter", link: "https://x.com/pasan_wijekoon" },
-      { icon: "instagram", link: "https://www.instagram.com/pasanwijekoon" },
-      
+      { icon: "github", link: "https://github.com/YourRepo" },
+      { icon: "twitter", link: "https://twitter.com/YourHandle" },
+      { icon: "instagram", link: "https://instagram.com/YourHandle" },
     ],
     // Sidebar
     sidebar: [
@@ -40,14 +36,15 @@ export default {
         text: "System Components",
         collapsible: true,
         items: [
-          { text: "All Components", link: "/Components" },
+          { text: "Hardware Components", link: "/hardwarecomponents" },
         ],
       },
       {
         text: "System Flow",
         collapsible: true,
         items: [
-          { text: "All Workflows", link: "/workflow" },
+          { text: "Data Workflow", link: "/dataworkflow" },
+          { text: "User Workflow", link: "/userworkflow" },
         ],
       },
       {
@@ -57,7 +54,7 @@ export default {
           { text: "Hardware Integration", link: "/hardwareintegration" },
           { text: "Wireframes", link: "/wireframes" },
           { text: "Database Design", link: "/databasedesign" },
-          { text: "UML Diagrams", link: "/usecasediagrams" },
+          { text: "Use Case Diagrams", link: "/usecasediagrams" },
         ],
       },
       {
@@ -65,7 +62,7 @@ export default {
         collapsible: true,
         items: [
           { text: "Arduino Code", link: "/arduinocode" },
-          { text: "PHP Script", link: "/phpscript" },
+          { text: "PHP Scripts", link: "/phpscripts" },
           { text: "Frontend UI", link: "/frontendui" },
         ],
       },
@@ -85,7 +82,7 @@ export default {
         ],
       }
     ],
-    // you can disable the previous and next page here
+    // Footer Settings
     docFooter: {
       prev: false,
       next: true,
@@ -93,13 +90,13 @@ export default {
   
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2024 Project Axious",
+      copyright: "Copyright © 2024 IoT Piano Visualizer",
     },
     markdown: {
       theme: "material-palenight",
       lineNumbers: true,
     },
-    // Mobile Config only
+    // Mobile Config
     returnToTopLabel: 'Go to Top',
     sidebarMenuLabel: 'Menu',
   },

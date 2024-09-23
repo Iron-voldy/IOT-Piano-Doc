@@ -1,49 +1,46 @@
-# Test Cases for Tea Weight Scale System Prototype
+# Test Cases for IoT Piano LED Visualizer System
 
-Test cases are essential to ensure that the **Tea Weight Scale System Prototype** works as expected. Below are some critical test cases that cover various aspects of the system, including the hardware, data flow, and frontend functionality.
-
-
+Test cases are essential to ensure that the **IoT Piano LED Visualizer System** works as expected. Below are critical test cases covering various aspects of the system, including hardware, data flow, and frontend functionality.
 
 ## **Functional Test Cases**
 
-### **Test Case 1: Measure Weight and Display on LCD**
-- **Description**: Ensure that the system correctly measures the tea weight and displays it on the LCD screen.
-- **Preconditions**: The tea is placed on the scale, and the system is powered on.
+### **Test Case 1: Play Notes and Visualize on LED Strip**
+- **Description**: Ensure that the system correctly plays the selected notes and lights up the corresponding LEDs on the LED strip.
+- **Preconditions**: The system is powered on, and a song is selected.
 - **Test Steps**:
-  1. Place a known weight of tea on the load cell.
-  2. Check the value displayed on the LCD screen.
-- **Expected Result**: The displayed weight should match the actual weight of the tea with an acceptable margin of error.
+  1. Select a song in the web interface.
+  2. Play the song in Play Mode.
+- **Expected Result**: The LED strip should light up in sync with the notes being played, providing visual feedback.
 
 ---
 
-### **Test Case 2: Button Press to Send Data**
-- **Description**: Validate that pressing the button sends the measured weight to the backend.
-- **Preconditions**: The weight is displayed on the LCD screen.
+### **Test Case 2: Toggle Between Tutorial and Play Mode**
+- **Description**: Validate that switching between Tutorial Mode and Play Mode works correctly.
+- **Preconditions**: A song is loaded, and the system is running.
 - **Test Steps**:
-  1. Press the button after placing tea on the scale.
-  2. Monitor the serial monitor or server logs for confirmation.
-- **Expected Result**: The weight should be successfully sent to the backend server, and the LED should light up to indicate success.
+  1. Select a song and start playing it in Tutorial Mode.
+  2. Switch to Play Mode and continue the song.
+- **Expected Result**: The system should smoothly switch between modes, and the LEDs should respond accordingly.
 
 ---
 
-### **Test Case 3: Saving Weight with Employee ID**
-- **Description**: Ensure that the supervisor can save the measured weight along with the employee ID via the frontend.
-- **Preconditions**: The system is connected to Wi-Fi, and the weight is displayed on the frontend.
+### **Test Case 3: Save User Performance Data**
+- **Description**: Ensure that the user's performance data (song, score, mode) is saved correctly.
+- **Preconditions**: The system is connected to Wi-Fi and the user has completed a song.
 - **Test Steps**:
-  1. Enter a valid employee ID in the frontend.
-  2. Press the "Save" button after fetching the weight.
-  3. Check the database for the saved record.
-- **Expected Result**: The weight and employee ID should be saved in the database, and a confirmation message should be displayed on the frontend.
+  1. Complete a song in either mode.
+  2. Check the database or logs for saved performance data.
+- **Expected Result**: The system should save the song, mode, and score into the database, and a confirmation should be shown.
 
 ---
 
-### **Test Case 4: View Final Weight Records**
-- **Description**: Verify that the final weight records are displayed correctly in the frontend.
-- **Preconditions**: The database has stored records.
+### **Test Case 4: View Saved Performance Records**
+- **Description**: Verify that the saved performance records are displayed correctly in the frontend.
+- **Preconditions**: The database has stored performance data.
 - **Test Steps**:
-  1. Navigate to the "View Weights" page in the frontend.
-  2. Check the table for weight records.
-- **Expected Result**: The table should display correct employee IDs, weight values, and timestamps.
+  1. Navigate to the "Performance" page.
+  2. Check the performance records displayed.
+- **Expected Result**: The table should display correct song names, scores, modes, and timestamps.
 
 ---
 
@@ -54,50 +51,49 @@ Test cases are essential to ensure that the **Tea Weight Scale System Prototype*
 - **Preconditions**: The system is powered on without Wi-Fi connectivity.
 - **Test Steps**:
   1. Power on the system with no Wi-Fi network available.
-  2. Try to send the weight data.
-- **Expected Result**: The system should continuously try to reconnect to the Wi-Fi network and display an error on the serial monitor.
+  2. Try to send performance data.
+- **Expected Result**: The system should continuously try to reconnect to the Wi-Fi network and display an error message on the serial monitor or frontend.
 
 ---
 
-### **Test Case 6: Handle Invalid Employee ID Input**
-- **Description**: Verify that the system handles invalid or empty employee ID entries.
-- **Preconditions**: The weight is displayed, but no employee ID is entered.
+### **Test Case 6: Handle Invalid Song Selection**
+- **Description**: Verify that the system handles invalid or missing song selections gracefully.
+- **Preconditions**: The song list is loaded, but no song is selected.
 - **Test Steps**:
-  1. Leave the Employee ID field empty.
-  2. Press the "Save" button.
-- **Expected Result**: The frontend should display an error message indicating that the Employee ID is required.
+  1. Attempt to play without selecting a song.
+  2. Monitor the system’s response.
+- **Expected Result**: The system should display an error message indicating that a song must be selected.
 
 ---
 
-### **Test Case 7: Invalid Weight Value Handling**
-- **Description**: Ensure that the system correctly handles invalid weight values (e.g., negative values or zero).
-- **Preconditions**: The Arduino or frontend is set to send an invalid weight.
+### **Test Case 7: Invalid Note Value Handling**
+- **Description**: Ensure that the system correctly handles invalid note values (e.g., notes outside the playable range).
+- **Preconditions**: The system receives an invalid note value.
 - **Test Steps**:
-  1. Simulate a weight of zero or a negative number.
-  2. Try to save the weight.
-- **Expected Result**: The system should reject invalid weights and display an error message.
+  1. Simulate sending an invalid note to the system.
+  2. Try to play the song with invalid notes.
+- **Expected Result**: The system should reject the invalid notes and display an error message.
 
 ---
 
 ## **Performance Test Cases**
 
-### **Test Case 8: Time to Send Weight Data**
-- **Description**: Measure how long it takes to send weight data to the backend after pressing the button.
+### **Test Case 8: Time to Play Notes**
+- **Description**: Measure how long it takes for the system to start playing a song after selecting it.
 - **Preconditions**: The system is connected to Wi-Fi and functioning normally.
 - **Test Steps**:
-  1. Place a weight on the scale.
-  2. Press the button and record the time.
-  3. Measure the time from button press to successful data transmission.
-- **Expected Result**: The weight data should be sent within a reasonable time frame (e.g., 1-2 seconds).
+  1. Select a song and press play.
+  2. Measure the time from selecting the song to the start of the LED display and audio output.
+- **Expected Result**: The system should start playing the song within 1-2 seconds.
 
 ---
 
 ### **Test Case 9: Database Query Performance for Viewing Records**
-- **Description**: Test how quickly the system retrieves weight records from the database.
+- **Description**: Test how quickly the system retrieves performance records from the database.
 - **Preconditions**: The database has a large number of saved records.
 - **Test Steps**:
-  1. Navigate to the "View Weights" page.
-  2. Measure the time taken to display the weight records.
+  1. Navigate to the "Performance" page.
+  2. Measure the time taken to display the performance records.
 - **Expected Result**: The records should be retrieved and displayed within a reasonable time frame.
 
 ---
@@ -118,9 +114,9 @@ Test cases are essential to ensure that the **Tea Weight Scale System Prototype*
 
 ### **Test Case 11: Prevent SQL Injection**
 - **Description**: Test that the system is protected against SQL injection attacks.
-- **Preconditions**: The system should have a backend receiving weight data.
+- **Preconditions**: The system should have a backend receiving performance data.
 - **Test Steps**:
-  1. Attempt to input malicious SQL code into the Employee ID field (e.g., `'; DROP TABLE save_weights; --`).
+  1. Attempt to input malicious SQL code into the song or performance fields (e.g., `'; DROP TABLE performance_data; --`).
   2. Submit the form.
 - **Expected Result**: The system should reject the input, and the database should remain unaffected.
 
@@ -128,12 +124,14 @@ Test cases are essential to ensure that the **Tea Weight Scale System Prototype*
 
 ## **Integration Test Cases**
 
-### **Test Case 12: Arduino to Backend Communication**
-- **Description**: Ensure smooth communication between the Arduino and the backend server.
-- **Preconditions**: The Arduino and backend server are configured correctly.
+### **Test Case 12: ESP32 to Backend Communication**
+- **Description**: Ensure smooth communication between the ESP32 microcontroller and the backend server.
+- **Preconditions**: The ESP32 and backend server are configured correctly.
 - **Test Steps**:
-  1. Place a weight on the scale and press the button.
+  1. Play a song on the ESP32 and trigger data transmission.
   2. Check the backend server logs to ensure the data is received and processed.
-- **Expected Result**: The weight data should be successfully transmitted to the backend without errors.
+- **Expected Result**: The performance data should be successfully transmitted to the backend without errors.
 
 ---
+
+These test cases will help ensure that the **IoT Piano LED Visualizer System** operates as expected across its various functions, including note playback, performance tracking, UI responsiveness, and backend communication.

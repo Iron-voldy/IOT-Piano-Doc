@@ -1,138 +1,80 @@
 # About Us
 
-## Tea Weight Scale System Research Project
+## IoT Piano Visualizer Project
 
-The **Tea Weight Scale System Prototype** is a research-focused project aimed at addressing inefficiencies in tea harvesting and collection through automation, data analytics, and real-time data management. By combining innovative hardware and software technologies, our system enhances the accuracy and efficiency of the tea collection process, creating value for both plantation workers and managers.
+The **IoT Piano Visualizer** is an innovative project that integrates hardware and software technologies to create an interactive piano learning experience. By combining real-time visual feedback with user performance tracking, this system enhances the process of learning piano, making it more engaging and effective for learners of all levels. The system utilizes an RGB LED strip to display corresponding notes as they are played, helping learners improve their timing and accuracy.
 
 ### Mission
-To develop and implement a reliable, automated tea collection system that reduces manual errors, increases operational efficiency, and provides real-time insights to improve decision-making in tea plantations.
+To provide a dynamic, interactive learning environment for piano students that incorporates visual feedback, real-time performance tracking, and data analytics to accelerate skill development.
 
 ### Vision
-We envision a future where tea plantations operate seamlessly with the aid of technology, fostering sustainability, productivity, and better working conditions for tea pluckers, supervisors, and plantation managers. Our research-driven approach ensures that we build solutions that benefit all stakeholders.
+We envision a future where music education is enriched by the seamless integration of technology, making learning more accessible, interactive, and enjoyable. Our goal is to revolutionize the way people learn piano by merging traditional music education with cutting-edge IoT technologies.
 
-
+---
 
 ## Meet the Team
 
-### Project Lead: **Stephany Kenny**
+### Project Lead: **Wannianayake W.M.H.T.**
 
-- **Role**: Project Manager
+- **Role**: Project Leader
 - **Responsibilities**:
-  - Leading project development and research direction.
-  - Coordinating team activities and ensuring successful delivery of milestones.
-  - Overseeing backend development and database design.
-  - Contact: 0762724227, Email: gloriyadstephany@gmail.com
-
+  - Leading the overall development of the project.
+  - Coordinating between hardware and software teams.
+  - Ensuring that project milestones are met on time.
+  - Contact: IT24100561@my.sliit.lk
 
 ---
+
 ### Technical Team
 ---
-#### 1. **Frontend Developer: Thanushka Nirmana**
+
+#### 1. **Frontend Developer: Hettiarachchi B.D.**
 
 - **Role**: User Interface Designer & Web Developer
 - **Responsibilities**:
   - Designing and developing the web-based user interface.
-  - Ensuring seamless integration of frontend features with the backend APIs.
+  - Implementing real-time feedback features.
+  - Ensuring the frontend integrates smoothly with backend APIs.
+  - Contact: IT24100227@my.sliit.lk
 
-#### 2. **Hardware Engineer: Pasan Wijekoon**
+#### 2. **Backend Developer: Lithman P.V.L.**
 
-- **Role**: Hardware Integration Specialist
+- **Role**: Software Unit Leader & API Developer
 - **Responsibilities**:
-  - Integrating the load cell, HX711 module, LCD, and microcontroller components.
-  - Ensuring accurate data transmission from hardware to the system.
+  - Developing the backend API to handle performance data.
+  - Ensuring secure data transmission and storage.
+  - Managing and optimizing the MySQL database for performance tracking.
+  - Contact: IT24101075@my.sliit.lk
 
-#### 3. **Backend Developer: Hasidu Theekshana**
+#### 3. **Hardware Engineer: Basnayake K.S.**
 
-- **Role**: API Developer & Database Administrator
+- **Role**: Hardware Unit Leader & Arduino Developer
 - **Responsibilities**:
-  - Developing PHP APIs for saving and retrieving weight data.
-  - Managing and securing the MySQL database.
+  - Developing and integrating the hardware components (RGB LED strip, piano keys).
+  - Writing Arduino code for note detection and LED visualization.
+  - Troubleshooting hardware issues and ensuring data accuracy.
+  - Contact: IT24100131@my.sliit.lk
 
+#### 4. **Hardware Integration Specialist: Hewavasan P. H.C.**
 
+- **Role**: Hardware Component Specialist
+- **Responsibilities**:
+  - Assisting with hardware setup and integration.
+  - Ensuring smooth communication between hardware components and the microcontroller.
+  - Testing and calibrating hardware for accurate note detection.
+  - Contact: IT24103185@my.sliit.lk
+
+#### 5. **Hardware Integration Specialist: Wijewardhana E.A.N.**
+
+- **Role**: Hardware Component Specialist
+- **Responsibilities**:
+  - Assisting with the development and integration of hardware components.
+  - Ensuring data transmission from sensors to the system is seamless.
+  - Supporting the team in testing hardware interactions with the system.
+  - Contact: IT24201016@my.sliit.lk
 
 ---
-### Research Team (Non-Technical Members)
----
-1. **Rashmi Sanjana**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting in collecting data related to tea collection processes.
-     - Contributing to writing and organizing research content.
-     - Contact: 0717372714, Email: sanjanarashmi046@gmail.com
 
-2. **Siluni Nanayakkara**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting in analyzing market trends for system adoption.
-     - Contributing to writing sections related to market research and analysis.
-     - Contact: 0714914689, Email: nanayakkarasiluni@gmail.com
+Our team is dedicated to delivering an exceptional, tech-driven learning experience for piano learners, backed by solid technical expertise and collaboration across hardware and software development.
 
-3. **Chamindu Wijedoru**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting in evaluating operational processes in tea plantations.
-     - Supporting the writing of research findings related to operational improvements.
-     - Contact: 0772039992, Email: HS23299016@my.sliit.lk
-
-4. **Hashini Imasha**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting with researching environmental impacts of automation.
-     - Contributing to writing sections focused on sustainability and environmental benefits.
-     - Contact: 0769242947, Email: khimasha2000@gmail.com
-
-5. **Vaishnavy Balakrishnan**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Supporting compliance research for the system.
-     - Assisting with writing content related to policy and regulatory compliance.
-     - Contact: 0764950272, Email: vaishnavybalakrishnan267@gmail.com
-
-6. **Nethmi Ilangasinghe**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting with stakeholder analysis and feedback.
-     - Contributing to writing research sections related to stakeholder engagement.
-     - Contact: 0764914069, Email: nethmiilangasinghe2003@gmail.com
-
-7. **Hansamali Senarath**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting with the development of training materials for users.
-     - Contributing to writing sections related to user training and system implementation.
-     - Contact: 0772752767, Email: hirunihansamali5@gmail.com
-
-8. **Nilma Sewmini Fernando**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting with studying the impact of the system on workers.
-     - Contributing to writing sections focused on workforce efficiency and productivity.
-     - Contact: 0718693767, Email: nilmasewmini16@gmail.com
-
-9. **Hirushi Rathnayaka**
-   - **Role**: Research Assistant and Writer
-   - **Responsibilities**:
-     - Assisting with compiling and organizing research findings.
-     - Contributing to writing reports, documentation, and publication material.
-     - Contact: 0754766855, Email: rathnayakahirushi123@gmail.com
-
-10. **Chathumini Parindya**
-    - **Role**: Research Assistant and Writer
-    - **Responsibilities**:
-      - Assisting with financial analysis and research.
-      - Supporting the writing of sections on financial viability and cost-effectiveness.
-      - Contact: 0768924723, Email: chathuminiparindya@gmail.com
-
-11. **Devindi Kaluarachchi**
-    - **Role**: Research Assistant and Writer
-    - **Responsibilities**:
-      - Assisting with field research and data collection.
-      - Contributing to writing sections based on field data and analysis.
-      - Contact: 0764678412, Email: HS23147546@my.sliit.lk
-
-12. **Nawodya Sandeepani Wickramarachchi**
-    - **Role**: Research Assistant and Writer
-    - **Responsibilities**:
-      - Assisting with logistical planning and coordination for research activities.
-      - Contributing to writing sections on operational logistics and team coordination.
-      - Contact: 0763924553, Email: nawodyawickramarachchi28@gmail.com
+We aim to merge music education with cutting-edge IoT technologies, making piano learning a more engaging and interactive process for everyone.

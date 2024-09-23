@@ -1,27 +1,34 @@
 # Get Started
 
-Welcome to the **Tea Weight Scale System Prototype** This guide will walk you through setting up the system, from configuring the hardware to deploying the web interface and backend. Follow the steps below to get started.
+Welcome to the **IoT Piano LED Visualizer System**. This guide will walk you through setting up the system, from configuring the hardware to deploying the web interface and backend. Follow the steps below to get started.
 
 ## 1. Hardware Setup
 
 ### Required Components:
-- **Dual Channel HX711**
-- **Load Cell (20kg)**
-- **Load Cell Bracket Optimus**
-- **LCD 16×4**
-- **Push Button, Resistor, LED x1**
-- **Microcontroller** (ESP32/Arduino)
+- **Casio SA-45 Keyboard**
+- **RGB LED Strip (WS2812B)**
+- **ESP32 Microcontroller**
+- **Push Button Sensors**
+- **LCD 16x2 Display**
 
 ### Step-by-Step Guide:
-1. **Assemble the Hardware**: Connect the load cell to the HX711 module. Use the following pin configurations:
-   - **HX711 DOUT** → Microcontroller pin 5
-   - **HX711 SCK** → Microcontroller pin 4
-2. **LCD Display**: Wire the LCD to the microcontroller using I2C.
-3. **Push Button and LED**: Connect the push button and LED for user interaction and feedback.
-4. **Power Up**: Once everything is connected, power up your microcontroller.
+1. **Assemble the Hardware**:
+   - Connect the RGB LED strip to the ESP32 microcontroller.
+   - Wire the push button sensors to the designated GPIO pins of the ESP32.
+   - Wire the LCD display using the I2C interface.
+   
+2. **Connect the LED Strip**:
+   - **Data Pin (DIN)** → ESP32 GPIO pin (e.g., D4)
+   - **Power (5V) and Ground (GND)** connections to ESP32.
+
+3. **Push Button and LCD Wiring**:
+   - **Push Button Pins** → ESP32 GPIO pins (as per your configuration).
+   - **LCD Display** connected to ESP32 via I2C.
+
+4. **Power Up**: Once everything is connected, power on your ESP32.
 
 ### Testing the Hardware:
-- Use basic Arduino or ESP32 sketches to test the load cell and LCD for proper functionality before proceeding with software.
+- Use basic Arduino sketches to test the LED strip, buttons, and LCD for proper functionality before proceeding with software setup.
 
 ---
 
@@ -37,12 +44,12 @@ Welcome to the **Tea Weight Scale System Prototype** This guide will walk you th
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-repo/tea-weight-scale-system.git
+   git clone https://github.com/your-repo/iot-piano-visualizer.git
    ```
-   
+
 2. **Navigate to the Frontend Directory**:
    ```bash
-   cd tea-weight-scale-system/frontend
+   cd iot-piano-visualizer/frontend
    ```
 
 3. **Install Dependencies**:
@@ -57,7 +64,7 @@ Welcome to the **Tea Weight Scale System Prototype** This guide will walk you th
    The application will be served at `http://localhost:3000`.
 
 5. **Build for Production**:
-   If you need to create a production build, run:
+   To create a production build, run:
    ```bash
    npm run build
    ```
@@ -66,19 +73,20 @@ Welcome to the **Tea Weight Scale System Prototype** This guide will walk you th
 
 1. **Navigate to the Backend Directory**:
    ```bash
-   cd tea-weight-scale-system/backend
+   cd iot-piano-visualizer/backend
    ```
 
 2. **Configure the Database**:
    - Set up a MySQL database with the following structure:
      ```sql
-     CREATE TABLE weights (
+     CREATE TABLE performance (
        id INT AUTO_INCREMENT PRIMARY KEY,
-       weight_value DECIMAL(5,2),
+       song_name VARCHAR(255),
+       score DECIMAL(5,2),
        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
      );
      ```
-   
+
 3. **Update the Database Credentials** in the `config.php` file:
    ```php
    $servername = "your_server";
@@ -90,7 +98,7 @@ Welcome to the **Tea Weight Scale System Prototype** This guide will walk you th
 4. **Run PHP Server**:
    If you're using a local server (e.g., XAMPP, MAMP):
    - Place the backend files in the `htdocs` or appropriate directory.
-   - Ensure your server is running, and the backend API is accessible.
+   - Ensure your server is running and the backend API is accessible.
 
 ---
 
@@ -106,25 +114,22 @@ Once both the frontend and backend are running:
      ```
 
 2. **Testing the Connection**:
-   - Navigate to the "Add Collection" page in the frontend.
-   - Test the "Get Weight" button, which should retrieve the latest weight data from the backend API.
+   - Navigate to the homepage in the frontend.
+   - Test the "Play Song" and "Submit Notes" features, which should interact with the backend API.
 
 ---
 
 ## 4. First Use
 
-### Step 1: Placing a Weight on the Scale
-- Power on the weight scale.
-- Place the harvested tea on the load cell to measure the weight.
-- The weight will display on the LCD screen.
+### Step 1: Playing Notes
+- Power on the system and connect to the web interface.
+- Enter the song name, musical notes, and durations in the input fields.
 
-### Step 2: Verifying the Weight
-- Navigate to the web interface.
-- Enter the employee ID and confirm the displayed weight.
+### Step 2: Playing the Song
+- Select the desired mode (Tutorial or Play Mode) and hit the "Play Selected Song" button to start the visual LED display.
 
-### Step 3: Saving the Weight
-- Once confirmed, the weight and employee ID are saved in the database.
-- You can view all saved entries on the **Final Weights Table** page.
+### Step 3: Viewing Performance Data
+- Once a session is complete, the performance data is saved and can be viewed on the **Performance** page in a graphical format.
 
 ---
 
@@ -142,12 +147,12 @@ Once both the frontend and backend are running:
 
 ## 6. Troubleshooting
 
-- **No Data on Display**: Check if the load cell is properly connected and the calibration factor is correct.
+- **No LED Response**: Check the connections between the ESP32 and the LED strip and ensure the correct GPIO pins are used.
 - **Frontend Not Connecting to Backend**: Ensure the correct API URL is set in the frontend configuration.
 - **Database Connection Issues**: Verify that your database credentials are correct and the server is running.
 
 ---
 
-If you follow these steps, you’ll have the **Tea Weight Scale System Prototype** up and running in no time! For any further assistance, check out our **Contact Us** page.
+Follow these steps to set up the **IoT Piano LED Visualizer System** and start using it. For further assistance, check the **Contact Us** page on the website.
 
 ---

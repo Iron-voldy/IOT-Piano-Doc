@@ -1,13 +1,15 @@
 ## Hardware Components
 
-- **Dual Channel HX711**: Rs. 260.00
-- **Load Cell (20kg)**: Rs. 440.00
-- **Load Cell Bracket Optimus**: Rs. 1500.00
-- **LCD 16×4**: Rs. 1290.00
-- **Push Button, Resistor, LED x1**: Rs. 150.00
-- **Total Cost**: ~Rs. 5000.00
+- **ESP32 Microcontroller**: Rs. 1290.00
+- **WS2812B LED Strip**: Rs. 780.00
+- **LCD Display**: Rs. 1440.00
+- **Push Button Sensors (32)**: Rs. 1440.00
+- **IR Sensor**: Rs. 1540.00
+- **Miscellaneous Components**: Rs. 2500.00
+- **Power Supply**: Rs. 800.00
+- **Total Cost**: ~Rs. 10,000.00
 
-## software and Frameworks
+## Software and Frameworks
 
 - **Frontend**: HTML, Tailwind CSS, JavaScript
 - **Backend**: PHP
@@ -20,4 +22,4 @@
 
 ## Connectivity
 
-The system uses Wi-Fi to communicate with the backend server and transmit weight data via HTTP POST requests.
+The system uses Wi-Fi to communicate with the backend server and transmit data, including notes and performance logs, via HTTP POST requests.
