@@ -6,7 +6,7 @@ hero:
   name: IoT Piano Visualizer
   text: Interactive Piano Learning with Real-Time LED Feedback.
   image:
-    src: /logo2.png
+    src: /assets/images/logo2.png # Ensure this path is correct
     alt: IoT Piano Visualizer logo
   tagline: Project Documentation Version 1.0
   actions:
@@ -15,7 +15,7 @@ hero:
       link: /introduction
     - theme: alt
       text: View on GitHub
-      link: https://github.com/iron-voldy
+      link: https://github.com/iron-voldy/IOT-Piano-Doc
 
 # Features section
 features:
@@ -53,18 +53,18 @@ head:
       content: IoT Piano Visualizer
   - - meta
     - property: og:image
-      content: https://github.com/YourRepo/IoT-Piano-Visualizer-Docs/blob/main/public/Card.png?raw=true
+      content: https://github.com/iron-voldy/IOT-Piano-Doc/blob/main/public/Card.png?raw=true # Update with actual path
   - - meta
     - property: og:url
-      content: https://yourdomain.com
+      content: https://iron-voldy.github.io/IOT-Piano-Doc/ # Ensure this is correct
   - - meta
     - name: title
       content: IoT Piano Visualizer
   - - meta
     - name: twitter:card
-      content: https://github.com/YourRepo/IoT-Piano-Visualizer-Docs/blob/main/public/Card.png?raw=true
+      content: https://github.com/iron-voldy/IOT-Piano-Doc/blob/main/public/Card.png?raw=true # Ensure image path is correct
   - - link
     - rel: icon
       type: image/png
-      href: logo.png
+      href: /assets/images/logo.png # Update this path
 ---
