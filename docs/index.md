@@ -6,13 +6,13 @@ hero:
   name: IoT Piano Visualizer
   text: Interactive Piano Learning with Real-Time LED Feedback.
   image:
-    src: /assets/images/logo2.png # Ensure this path is correct
+    src: /IOT-Piano-Doc/assets/images/logo2.png  # Ensure this path matches the actual location of your image file.
     alt: IoT Piano Visualizer logo
   tagline: Project Documentation Version 1.0
   actions:
     - theme: brand
       text: Get Started
-      link: /introduction
+      link: /IOT-Piano-Doc/introduction   # Make sure this links to an existing file like introduction.md
     - theme: alt
       text: View on GitHub
       link: https://github.com/iron-voldy/IOT-Piano-Doc
@@ -53,18 +53,18 @@ head:
       content: IoT Piano Visualizer
   - - meta
     - property: og:image
-      content: https://github.com/iron-voldy/IOT-Piano-Doc/blob/main/public/Card.png?raw=true # Update with actual path
+      content: https://iron-voldy.github.io/IOT-Piano-Doc/assets/images/Card.png  # Ensure this points to an actual image on your repo
   - - meta
     - property: og:url
-      content: https://iron-voldy.github.io/IOT-Piano-Doc/ # Ensure this is correct
+      content: https://iron-voldy.github.io/IOT-Piano-Doc/  # Ensure this is the correct URL for your GitHub Pages site
   - - meta
     - name: title
       content: IoT Piano Visualizer
   - - meta
     - name: twitter:card
-      content: https://github.com/iron-voldy/IOT-Piano-Doc/blob/main/public/Card.png?raw=true # Ensure image path is correct
+      content: https://iron-voldy.github.io/IOT-Piano-Doc/assets/images/Card.png  # Ensure the image path is correct
   - - link
     - rel: icon
       type: image/png
-      href: /assets/images/logo.png # Update this path
+      href: /IOT-Piano-Doc/assets/images/logo.png  # Ensure this path is valid
 ---
