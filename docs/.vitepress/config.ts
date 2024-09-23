@@ -1,8 +1,9 @@
 export default {
   title: "IoT Piano Visualizer Documentation",
-  description: "Interactive Piano Learning System Documentation",
+  description: "Interactive Piano Learning with Real-Time LED Feedback Documentation",
   lang: 'en-US',
   cleanUrls: true,
+  // If this is disabled, when building it it will give deadlink errors if your markdown has the wrong links
   ignoreDeadLinks: true,
   
   themeConfig: {
@@ -15,14 +16,14 @@ export default {
     nav: [
       { text: "About", link: "/about" },
       { text: "Contact", link: "/contact" },
+     // { text: "Guide", link: "/guide" },
     ],
     // Social Icons
     socialLinks: [
-      { icon: "github", link: "https://github.com/YourRepo" },
-      { icon: "twitter", link: "https://twitter.com/YourHandle" },
-      { icon: "instagram", link: "https://instagram.com/YourHandle" },
+      { icon: "github", link: "https://github.com/iron-voldy" },
+      { icon: "twitter", link: "https://twitter.com/iron_voldy" },
     ],
-    // Sidebar
+    // Sidebar Configuration
     sidebar: [
       {
         text: "Project Overview",
@@ -36,15 +37,14 @@ export default {
         text: "System Components",
         collapsible: true,
         items: [
-          { text: "Hardware Components", link: "/hardwarecomponents" },
+          { text: "All Components", link: "/Components" },
         ],
       },
       {
         text: "System Flow",
         collapsible: true,
         items: [
-          { text: "Data Workflow", link: "/dataworkflow" },
-          { text: "User Workflow", link: "/userworkflow" },
+          { text: "All Workflows", link: "/workflow" },
         ],
       },
       {
@@ -54,7 +54,7 @@ export default {
           { text: "Hardware Integration", link: "/hardwareintegration" },
           { text: "Wireframes", link: "/wireframes" },
           { text: "Database Design", link: "/databasedesign" },
-          { text: "Use Case Diagrams", link: "/usecasediagrams" },
+          { text: "UML Diagrams", link: "/usecasediagrams" },
         ],
       },
       {
@@ -62,7 +62,7 @@ export default {
         collapsible: true,
         items: [
           { text: "Arduino Code", link: "/arduinocode" },
-          { text: "PHP Scripts", link: "/phpscripts" },
+          { text: "PHP Script", link: "/phpscript" },
           { text: "Frontend UI", link: "/frontendui" },
         ],
       },
@@ -82,7 +82,7 @@ export default {
         ],
       }
     ],
-    // Footer Settings
+    // you can disable the previous and next page here
     docFooter: {
       prev: false,
       next: true,
@@ -96,7 +96,7 @@ export default {
       theme: "material-palenight",
       lineNumbers: true,
     },
-    // Mobile Config
+    // Mobile Config only
     returnToTopLabel: 'Go to Top',
     sidebarMenuLabel: 'Menu',
   },
