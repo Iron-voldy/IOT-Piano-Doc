@@ -6,8 +6,8 @@ Our team is here to assist you with any inquiries, suggestions, or feedback rega
 
 #### Project Lead
 
-- **Name:** Miss S G Kenny
-- **Email:** SGKenny@gmail.com
+- **Name:** Stephany Kenny 
+- **Email:** gloriyadstephany@gmail.com
 - **Phone:** +94 76 272 4227
 
 #### Technical Lead
@@ -17,11 +17,13 @@ Our team is here to assist you with any inquiries, suggestions, or feedback rega
 
 #### Backend Developer
 - **Name:** Hasidu Theekshana
-- **Email:** Hasindut@gmail.com.com
+- **Email:** Hasindut1@gmail.com
+- **Phone:** +94 77 939 3662
 
 #### Frontend Developer
 - **Name:** Thanushka Nirmana
-- **Email:** thanushkaNirmana@gmail.com
+- **Email:** chanuhettiarachchi1@gmail.com
+- **Phone:** +94 71 937 6447
 
 ---
 
